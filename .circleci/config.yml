@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec weplay bash -c 'yes n
+            docker-compose exec weplay bash
       - run:
           name: Run rspec
           command: docker-compose exec weplay rspec
