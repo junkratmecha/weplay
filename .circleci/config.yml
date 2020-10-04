@@ -17,6 +17,10 @@ jobs:
             set -x
             docker-compose up -d
       - run:
+          name: Setup database
+          command: |
+            docker-compose exec weplay bash -c 'yes n
+      - run:
           name: Run rspec
           command: docker-compose exec weplay rspec
 
@@ -42,7 +46,7 @@ jobs:
           command: bundle check || bundle install --jobs=8 --clean
       - run:
           name: Run rubocop
-          command: rubocop 
+          command: bundle exec rubocop --parallel
       - save_cache:
           key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
