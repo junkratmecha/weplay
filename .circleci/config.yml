@@ -10,8 +10,8 @@ jobs:
       - run:
           name: Setup environment variable
           command: |
-            echo "export COMPOSE_FILE=docker-compose.ci.yml" >> $BASH_ENV
-      - run:
+            echo "export COMPOSE_FILE=docker-compose.yml" >> $BASH_ENV
+      - run:  
           name: Start containers and verify it is working
           command: |
             set -x
@@ -32,6 +32,11 @@ jobs:
             - gemfiles-{{ .Branch }}-
             - gemfiles-master-
       - run: bundle config --local path vendor/bundle
+      - run:
+          name: update bundler
+          command: |
+            gem update --system
+            gem install bundler
       - run:
           name: bundle install
           command: bundle check || bundle install --jobs=8 --clean
