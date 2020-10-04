@@ -19,9 +19,9 @@ jobs:
       - run:
           name: Run rspec
           command: 
-          docker-compose up -d
-          docker-compose exec weplay bash
-          respec
+            docker-compose up -d
+            docker-compose exec weplay bash
+            respec
 
   rubocop:
     working_directory: ~/weplay
