@@ -16,7 +16,6 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec weplay curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
       - run:
           name: Run rspec
           command: docker-compose exec weplay rspec
@@ -38,7 +37,7 @@ jobs:
           command: bundle check || bundle install --jobs=8 --clean
       - run:
           name: Run rubocop
-          command: bundle exec rubocop --parallel
+          command: rubocop 
       - save_cache:
           key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
           paths:
