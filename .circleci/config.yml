@@ -3,25 +3,30 @@ jobs:
   rspec:
     working_directory: ~/weplay
     docker:
-      - image: circleci/ruby
+      - image: circleci/ruby:2.5.7
     steps:
       - checkout
-      - setup_remote_docker
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
+      - run: bundle config --local path vendor/bundle
       - run:
-          name: Setup environment variable
+          name: update bundler
           command: |
-            echo "export COMPOSE_FILE=docker-compose.yml" >> $BASH_ENV
-      - run:  
-          name: Start containers and verify it is working
-          command: |
-            set -x
-            docker-compose up -d
+            gem update --system
+            gem install bundler
+      - run:
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
       - run:
           name: Run rspec
-          command: 
-          docker-compose up -d
-          docker-compose exec weplay bash
-          respec
+          command: bundle exec rspec
+      - save_cache:
+          key: gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
 
   rubocop:
     working_directory: ~/weplay
