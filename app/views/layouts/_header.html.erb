@@ -1,15 +1,23 @@
-<header class="header">
-  <div class="header__bar"> 
-    <div id="logo">
-      <%= image_tag 'logo2.png', size: '128x64' %>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top header-nav shadow-sm">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag 'logo_white_1.png', style: "width: 100px;" %>
+    <% end %>
+    <div class="collapse navbar-collapse" id="navmenu1">
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クラン', "#" %></li>
+          <li class="nav-item"><i class="fas fa-user"></i><%= link_to ' マイページ', "#" %></li>
+          <li class="nav-item"><i class="fas fa-sign-in-alt"></i><%= link_to ' ログアウト', "#" %></li>
+        <% else %>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クラン', "#" %></li>
+          <li class="nav-item"><i class="fas fa-user"></i><%= link_to ' ユーザー登録', "#" %></li>
+          <li class="nav-item"><i class="fas fa-sign-in-alt"></i><%= link_to ' ログイン', "#" %></li>
+        <% end %>
+      </ul>
+      <dl class="searchbox">
+        <dt><%= text_field :title_or_body_or_user, placeholder: "キーワードを入力", class: "form-control" %></dt>
+        <dd><button type="submit" class="search-btn"><i class="fas fa-search" style="color: grey;"></i></button></dd>
     </div>
-    <ul class="header__bar__user_nav">
-      <li class="header__bar__user_nav__btn">
-        <%= link_to "ログイン", "#" %>
-      </li>
-      <li class="header__bar__user_nav__btn">
-        <%= link_to "新規登録", "#" %>
-      </li>
-    </ul>
-  </div>
+  </nav>
 </header>

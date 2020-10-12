@@ -1,12 +1,12 @@
-<footer class="footer">
-  <div class="footer__bar">
-    <h4 class="footer__bar__icon">
-        <li><%= link_to "アプリ紹介", about_path %></li>
-        <li><%= link_to "利用規約", terms_path %>
-        <li><%= link_to "ヘルプ", help_path %>s
-    </h4>
-    <div class="footer__bar__copylight">
-      <span>Junkratmecha All Rights Reserved.</span>
+<footer>
+  <nav class="navbar">
+    <span class= "footer-license">©2020 Junkratmecha All Rights Reserved.</span>
+    <div class="guide-link">
+      <span class="text-right">
+        <i class="fas fa-headphones-alt"><%=link_to " パーティープレイの始め方", "#", style: "color: #e9eef1; margin-right: 10px;" %></i>
+        <i class="fas fa-question-circle"><%= link_to " 利用規約・お問い合わせ", "#", style: "color: #e9eef1; margin-right: 10px;" %></i>
+        <i class="fas fa-book-reader"><%= link_to " プライバシーポリシー", "#", style: "color: #e9eef1;" %></i>
+      </span>
     </div>
-  </div>
+  </nav>
 </footer>
