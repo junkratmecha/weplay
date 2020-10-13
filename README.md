@@ -1,5 +1,7 @@
 # README
-あ
+課題
+-検索ボックス入力時に左にスペースが欲しい
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
