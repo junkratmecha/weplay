@@ -1,44 +1,52 @@
-<%= render "users/shared/links" %>
+<div class="container">
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 offset-sm-2">
+      <p class="example1 text-center">ユーザー登録</p>
+      <h6 style="color: grey;">ユーザー情報は登録後いつでも変更できます</h6>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="form-group">
+            <span class="badge badge-danger">必須</span><%= f.label :名前 %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :プレイステーションID %>
+            <%= f.text_field :psid, autofocus: true, autocomplete: "psid", class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <span class="badge badge-danger">必須</span><%= f.label :メールアドレス  %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+          <div class="sex-field">
+            <%= f.label :性別 %><br />
+            <%= f.label :男性  %>
+            <%= f.radio_button :sex, :男性 %>
+            <%= f.label :女性  %>
+            <%= f.radio_button :sex, :女性 %>
+          </div>
 
-<h2>ユーザー登録</h2>
+          <div class="form-group">
+            <span class="badge badge-danger">必須</span><%= f.label :パスワード %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= render "devise/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  <div class="sex-field">
-    <%= f.label :性別 %><br />
-    <%= f.label :男性  %>
-    <%= f.radio_button :sex, :男性 %>
-    <%= f.label :女性  %>
-    <%= f.radio_button :sex, :女性 %>
-  </div>
+          <div class="form-group">
+            <span class="badge badge-danger">必須</span><%= f.label :パスワードの再入力 %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(最低<%= @minimum_password_length %>文字)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+          <div class="actions">
+            <p><%= f.submit "登録", class: "btn btn3 col-sm-12" %></p>
+          </div>
 
-  <div class="field">
-    <%= f.label :パスワードの再入力 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <h5><%= link_to "利用規約・お問い合わせ", terms_path %></h5>
+          <h5><%= link_to "プライバシーポリシー", privacy_path %></h5>
+          <p><%= render "users/shared/links" %></p>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "ユーザー登録" %>
-  </div>
-<% end %>
-<%= link_to "利用規約", terms_path %><br />
-<%= render "devise/shared/links" %>
