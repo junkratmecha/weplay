@@ -1,9 +1,54 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "reset";
-@import "config/variable";
 @import "header";
 @import "footer";
+@import "pages";
+
+// body
+.body{
+  margin-bottom: 130px;
+  color: #363636;
+  font-size: 100%;
+}
+
+.wrapper{
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+
+.error_message{
+  color: #721c24;
+}
+
+a{
+  color:  black;
+}
+
+.titleHr{
+  margin-top: 10px;
+  border-top: 1px solid #e9eef1;
+
+}
+
+.content{
+  margin-top: 10px;
+}
+
+.show-message{
+  float: right;
+  margin-bottom: 10px;
+}
+
+.follower-face{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+
 
 .top-summary{
   margin-top: 50px;
@@ -13,18 +58,42 @@
 .iphone{
   width: 100%;
 }
-
-.top-registration-btn{
+// トップページユーザー登録・ログイン
+.btn1{
   color: #fff;
-  background-image: linear-gradient(260deg, #00c4c4, #0d93e0);
+  background-image: linear-gradient(260deg, #3a51d3, #010ca3);
   border-radius: 50px;
   width: 240px;
-  margin: 40px 0 20px 0;
+  margin: 0px 20px 0px 0;
+  float: left;
+}
+// トップページ下部クラン検索
+.btn2{
+  color: #fff;
+  background-image: linear-gradient(260deg, #3a51d3, #010ca3);
+  border-radius: 50px;
+  width: 240px;
+  margin: 0px 0px 50px 0;
+}
+// deviceクリック(yes)
+.btn3{
+  background-image: linear-gradient(260deg, #3a51d3, #010ca3);
+  margin: 30px 0px 0px 0;
+  color: #fff;
+}
+// ゲストログイン・device戻るボタン(no)
+.btn4{
+  background-color: gray;
+  margin: 30px 0px 0px 0;
+  color: #fff;
 }
 
 .top-message{
   margin-top: 50px;
+  
 }
+
+
 
 .about-hareyaka{
   width: 100%;
@@ -35,4 +104,38 @@
   padding: 60px;
   background-color: #f5f8fa;
   border-radius: 15px;
+}
+
+#box1{
+  background-color: #fff;
+}
+
+#box2{
+  background-color: #fff;
+}
+
+// トップ大文字・device見出し
+p.example1 {
+  font-size: xx-large; 
+  text-decoration: none;
+  margin-bottom: 40px;
+}
+
+p.example2 {
+  font-size: large; 
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+p.example3 {
+  font-size: small; 
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+p.example4 {
+  font-size: xx-large; 
+  text-decoration: none;
+  padding-top: 50px;
+  margin-bottom: 100px;
 }

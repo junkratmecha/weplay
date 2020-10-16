@@ -1,0 +1,29 @@
+.greeting-sentence{    
+  padding: 20px 0;
+}
+
+.guide-content{
+  padding: 20px;
+
+  .guide-title {
+    position: relative;
+    background: #e5f1ee;
+    box-shadow: 0px 0px 0px 5px #e5f1ee;
+    border: dashed 2px white;
+    margin-bottom: 60px;
+    padding: 10px 0 0 10px;
+    color: #454545;
+  }
+
+  .guide-body{
+    margin-bottom: 60px;
+  }
+
+  .guide-explanation{
+    margin-bottom: 60px;
+  }
+
+  .guide-image{
+    width: 100%;
+  }
+}
