@@ -17,6 +17,8 @@ gem 'devise'
 gem 'mysql2', '~> 0.5.2'
 gem 'bootstrap'
 gem 'font-awesome-sass'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
