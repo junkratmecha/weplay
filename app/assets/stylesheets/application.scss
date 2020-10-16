@@ -12,6 +12,7 @@
   font-size: 100%;
 }
 
+// 何に使ってる?
 .wrapper{
   min-height: 100vh;
   position: relative;
@@ -20,13 +21,16 @@
 }
 
 .error_message{
-  color: #721c24;
+  color: #72261c;
 }
 
 a{
   color:  black;
+  font-weight: bold;
 }
 
+
+// for pages
 .titleHr{
   margin-top: 10px;
   border-top: 1px solid #e9eef1;
@@ -58,23 +62,15 @@ a{
 .iphone{
   width: 100%;
 }
-// トップページユーザー登録・ログイン
+// トップページ
 .btn1{
   color: #fff;
   background-image: linear-gradient(260deg, #3a51d3, #010ca3);
   border-radius: 50px;
   width: 240px;
-  margin: 0px 20px 0px 0;
-  float: left;
+  margin: 0px 20px 0px 0px;
 }
-// トップページ下部クラン検索
-.btn2{
-  color: #fff;
-  background-image: linear-gradient(260deg, #3a51d3, #010ca3);
-  border-radius: 50px;
-  width: 240px;
-  margin: 0px 0px 50px 0;
-}
+
 // deviceクリック(yes)
 .btn3{
   background-image: linear-gradient(260deg, #3a51d3, #010ca3);
@@ -118,7 +114,8 @@ a{
 p.example1 {
   font-size: xx-large; 
   text-decoration: none;
-  margin-bottom: 40px;
+  margin: 20px 0px 20px 0px;
+  font-weight: bold;
 }
 
 p.example2 {
@@ -138,4 +135,14 @@ p.example4 {
   text-decoration: none;
   padding-top: 50px;
   margin-bottom: 100px;
+}
+
+.icon_image {
+  width: 200px;
+  height: 200px;
+  //サイズ指定
+  border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
 }
