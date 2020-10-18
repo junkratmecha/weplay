@@ -20,7 +20,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'carrierwave'
 gem 'mini_magick'
-gem "sqlite3", "~> 1.3.6"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -28,6 +27,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "rspec-rails"
   gem "factory_bot_rails"
+  gem "sqlite3", "~> 1.3.6"
 end
 
 group :development do
