@@ -1,61 +1,77 @@
-<h2>ユーザープロフィール変更</h2>
+<div class="container">
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 offset-sm-2">
+      <p class="example1 text-center">ユーザー情報の変更</p>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field">
+          <%= f.label :アイコン画像 %><br/>
+          <%= f.file_field :image %>
+        </div>
+        <div class="field text-center">
+          <img src=<%= @user.image %> class = "icon_image">
+        </div>
+        <div class="form-group">
+          <%= f.label :名前 %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :プレイステーションID %>
+          <%= f.text_field :psid, autofocus: true, autocomplete: "psid", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+        <%= f.label :性別 %><br />
+        <div class="radio-btn">
+          <%= f.label :男性  %>
+          <%= f.radio_button :sex, :男性 %>
+          <%= f.label :女性  %>
+          <%= f.radio_button :sex, :女性 %>
+        </div>
+        <div class="age-field">
+            <%= f.label :年齢 %><br />
+            <%= f.label :１０代  %>
+            <%= f.radio_button :age, :１０代 %>
+            <%= f.label :２０代  %>
+            <%= f.radio_button :age, :２０代 %>
+            <%= f.label :３０代  %>
+            <%= f.radio_button :age, :３０代 %>
+            <%= f.label :４０代  %>
+            <%= f.radio_button :age, :４０代 %>
+            <%= f.label :５０代以上  %>
+            <%= f.radio_button :age, :５０代以上 %>
+          </div>
+        <div class="form-group">
+          <%= f.label :自己紹介 %>
+          <%= f.text_area :self_introduction, autofocus: true, autocomplete: "self_introduction", class: "form-control" %>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<%= render "devise/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, class: "form-control",autocomplete: "name" %>
+        <div class="form-group">
+          <span class="badge badge-danger">必須</span><%= f.label :現在のパスワード %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :新しいパスワード %>
+          <% if @minimum_password_length %>
+            <em>(<%=@minimum_password_length %>文字以上)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "新しいパスワード(確認用)" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "変更を保存する", class:"data-disable-with", class: "btn btn3 col-sm-12" %>
+        </div>
+      <% end %>
+      <p><%= link_to 'マイページへ戻る', "#", method: :post, class: "btn btn4 col-sm-12" %></p>
+    </div>
   </div>
-  
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-  
-
-  <div class="field">
-    <%= f.label :自己紹介 %><br />
-    <%= f.text_area :self_introduction, class: "form-control" %>
-  </div>
-  
-  <%= f.label :性別 %><br />
-  <div class="radio-btn">
-    <%= f.label :男性  %>
-    <%= f.radio_button :sex, :男性 %>
-    <%= f.label :女性  %>
-    <%= f.radio_button :sex, :女性 %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :パスワード %> <i>(変更しない場合は空白のまま)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>最低<%= @minimum_password_length %>文字</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワードの再入力 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :現在のパスワード %> <i>(変更をする場合はご入力ください)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新する" %>
-  </div>
-<% end %>
-
-<h3>アカウントの削除</h3>
-
-<p> <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?" }, method: :delete %></p>
-
-<%= link_to "戻る", :back %>
+</div>
 

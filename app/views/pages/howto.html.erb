@@ -1,19 +1,145 @@
-<h1>アプリ紹介</h1>
-  <h2>
-    このアプリは画像共有SNSです。
-    友達と画像を共有しましょう!
-  </h2>　
-  
-<h1>楽しみ方① 友達をフォローしよう！</h1>
-    <h2>ユーザー一覧から友達を探そう</h2>
-    <h2>友達のページからフォローボタンを押そう</h2>
-    <h2>あなたのタイムラインに友達の投稿が流れます</h2>
-  
-<h1>楽しみ方②画像を共有しよう！</h1>
-    <h2>投稿フォームから画像を共有しましょう</h2>
-    <h2>画像にコメントを添えよう</h2>
-    <h2>あなたのフォロワーにあなたの画像が共有されます</h2>
-  
-<h1>その他の楽しみ方</h1>
-    <h2>気になる画像を検索ページから検索してみよう</h2>
-    <h2>気に入った画像をお気に入り登録しよう</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 text-center">
+      <h3><strong>Hareyakaはじめてガイド</strong></h3>
+      <hr class="titleHr">
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%# サイドバー %>
+    <div class="greeting col-lg-4">
+      <h6 class="greeting-sentence">はじめまして。</h6>
+      <h6 class="greeting-sentence">Hareyakaをご覧頂きありがとうございます。</h6>
+      <h6 class="greeting-sentence">
+        こちらはHareyakaをより知ってもらうための<br>
+        ガイドページです。
+      </h6>
+      <h6 class="greeting-sentence">
+        使い方がわからない時はこのガイドを参考に<br>
+        していただけると幸いです。
+      </h6>
+    </div>
+
+    <%# ガイド本文 %>
+    <div class="col-lg-8">
+      <div class="individual">
+        <h4 class="text-center">個人会員の皆様へ</h4>
+        <hr class="titleHr">
+        
+        <%# コンテンツ1 %>
+        <div class="guide-content">
+          <div class="guide-title">
+            <h5><strong>1）はじめに</strong></h5>
+          </div>
+          <div class="guide-body">
+            <p>Hareyakaは、会員制のサイトです。</p>
+            <p>記事の閲覧はログインが不要ですが、記事のお気に入り/企業のフォロー・DM等のサービスのご利用にはログインが必要です。</p>
+            <p>はじめてのご利用の際はまず上部ヘッダーから新規会員登録をよろしくお願いします。</p>
+            <p style="color: red;">※ポートフォリオ用にゲストログイン機能を実装しております。ヘッダーのログインリンクよりお進みください。</p>
+          </div>
+        </div>
+        
+        <%# コンテンツ2 %>
+        <div class="guide-content">
+          <div class="guide-title">
+            <h5><strong>2）マイページを編集しよう</strong></h5>
+          </div>
+          <div class="guide-body">
+            <p>Hareyakaは企業とのコミュニケーションをとることができるサービスです。</p>
+            <p>マイページに自己紹介文を書くことで、あなたからの連絡をはじめて受けた企業は</p>
+            <p>あなたがどんなことへの悩み、興味を持っているのかを知ることができます。</p>
+            <p>自分を知ってもらうためにも是非、自己紹介文を充実させましょう！</p>
+          </div>
+          <p><strong>【自己紹介文の作成方法】</strong></p>
+          <div class="guide-explanation">
+            <p>・ログイン後、画面右上のマイページをクリックします。</p>
+            <%= image_tag 'team_black1.png', class: "guide-image" %>
+          </div>
+          <div class="guide-explanation">
+            <p>・会員登録情報が表示されますので、一番下の"編集する"をクリックします。</p>
+            <%= image_tag 'team_black1.png', class: "guide-image" %>
+          </div>
+          <div class="guide-explanation">
+            <p>
+              ・登録情報編集フォームが表示されますので、一番下の自己紹介文の欄に文章を入力し、"変更を保存する"をクリックします。これでマイページの編集は完了です！
+            </p>
+            <%= image_tag 'team_black1.png', class: "guide-image" %>
+          </div>
+        </div>
+        
+        <%# コンテンツ3 %>
+        <div class="guide-content">
+          <div class="guide-title">
+            <h5><strong>3）記事を読んでみる</strong></h5>
+          </div>
+          <div class="guide-body">
+            <p>様々な企業がそれぞれ専門とする分野についての記事を掲載しています。</p>
+            <p>是非いろいろな記事を読んでみましょう！</p>
+          </div>
+          <div class="guide-explanation">
+            <%= image_tag 'team_black1.png', class: "guide-image" %>
+          </div>
+        </div>
+        
+        <%# コンテンツ4 %>
+        <div class="guide-content">
+          <div class="guide-title">
+            <h5><strong>4）記事のお気に入り、会社のフォローをしよう</strong></h5>
+          </div>
+          <div class="guide-body">
+            <p>気になる記事や会社があったら、お気に入り/フォローをしましょう。</p>
+            <p>後で読み返したいと思ったときや、会社のプロフィールを見たいときに便利です。</p>
+          </div>
+          <p><strong>【お気に入り割合の確認】</strong></p>
+          <div class="guide-explanation">
+            <p>マイページのお気に入り欄で、お気に入り記事のジャンル割合を確認できます。</p>
+            <p>割合が多いものは、実は自分では気づかなかった悩みの元かもしれません。</p>
+            <p>定期的に確認してみましょう！</p>
+            <%= image_tag 'team_black1.png', class: "guide-image" %>
+          </div>
+        </div>
+        
+        <%# コンテンツ5 %>
+        <div class="guide-content">
+          <div class="guide-title">
+            <h5><strong>5）会社へDMを送ろう</strong></h5>
+          </div>
+          <div class="guide-body">
+            <p>記事について聞きたいことや、相談したい悩みがあれば会社にメッセージを送りましょう。</p>
+            <p>あなたの悩み、一緒に解決します。</p>
+          </div>
+          <p><strong>【DMの方法】</strong></p>
+          <div class="guide-explanation">
+            <p>・ログイン後、記事詳細の一番下にある"この記事の話をもっと聞きたい！"をクリックします。</p>
+            <%= image_tag 'team_black1.png', class: "guide-image" %>
+          </div>
+          <div class="guide-explanation">
+            <p>・企業詳細ページが表示されますので、"DMを始める"をクリックします。</p>
+            <p>・先ほどの記事詳細ページ以外にも、専門家リストやフォローリストからも企業詳細ページへ遷移可能です。</p>
+            <%= image_tag 'team_black1.png', class: "guide-image" %>
+          </div>
+          <div class="guide-explanation">
+            <p>クリックするとDM送信フォームが表示されますので、お悩みやご相談を入力し送信しましょう。これでDMの送信は完了です！</p>
+            <p>企業からの返信はヘッダー右上のDM通知欄に表示されます。返信が来るまでお待ちください。</p>
+          </div>
+        </div>
+        
+        <%# コンテンツ6 %>
+        <div class="guide-content">
+          <div class="guide-title">
+            <h5><strong>6）最後に</strong></h5>
+          </div>
+          <div class="guide-body">
+            <p>いかがでしたでしょうか。</p>
+            <p>Hareyakaはあなたの悩みを企業と共に解決していきます。</p>
+            <p>一人で悩まずに、是非ご相談ください。</p>
+          </div>
+        </div>
+      </div>
+
+    <%# ここまでガイド本文 %>
+    </div>
+  </div>
+</div>

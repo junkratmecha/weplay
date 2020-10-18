@@ -1,6 +1,6 @@
 header{
   /* bodyとの高さを調整 */
-  margin-bottom: 80px;
+  margin-bottom: 120px;
 }
 
 .header-nav{
@@ -49,4 +49,11 @@ dl.searchbox dd{
   height: 28px;
   line-height: 28px;
   border: none;
+}
+
+#box2{
+  background-color: gray;
+}
+#box1{
+  background-color: #fff;
 }
