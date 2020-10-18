@@ -26,6 +26,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "rspec-rails"
   gem "factory_bot_rails"
+  gem "sqlite3", "~> 1.3.6"
 end
 
 group :development do
@@ -34,7 +35,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop-airbnb'
-  gem "sqlite3", "~> 1.3.6"
 end
 
 group :production do
