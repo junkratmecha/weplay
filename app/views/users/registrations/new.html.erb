@@ -24,7 +24,19 @@
             <%= f.label :女性  %>
             <%= f.radio_button :sex, :女性 %>
           </div>
-
+          <div class="age-field">
+            <%= f.label :年齢 %><br />
+            <%= f.label :１０代  %>
+            <%= f.radio_button :age, :１０代 %>
+            <%= f.label :２０代  %>
+            <%= f.radio_button :age, :２０代 %>
+            <%= f.label :３０代  %>
+            <%= f.radio_button :age, :３０代 %>
+            <%= f.label :４０代  %>
+            <%= f.radio_button :age, :４０代 %>
+            <%= f.label :５０代以上  %>
+            <%= f.radio_button :age, :５０代以上 %>
+          </div>
           <div class="form-group">
             <span class="badge badge-danger">必須</span><%= f.label :パスワード %>
             <% if @minimum_password_length %>
