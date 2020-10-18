@@ -13,7 +13,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
-gem 'mysql2', '~> 0.5.2'
 gem 'bootstrap'
 gem 'font-awesome-sass'
 gem 'devise-i18n'
@@ -27,7 +26,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "rspec-rails"
   gem "factory_bot_rails"
-  gem "sqlite3", "~> 1.3.6"
 end
 
 group :development do
@@ -36,6 +34,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop-airbnb'
+  gem "sqlite3", "~> 1.3.6"
 end
 
 group :production do
