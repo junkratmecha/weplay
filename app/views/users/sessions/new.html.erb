@@ -1,26 +1,34 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container">
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 offset-sm-2">    
+    <p class="example1 text-center">ログイン</p>
+      <h6 style="color: grey;">※ゲストログイン(お試し使用)でのアクションは残りません。</h6>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <% flash.each do |name, msg| %>
+          <div class="alert alert-danger" role="alert">
+            <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <span class="badge badge-danger">必須</span><%= f.label :メールアドレス, class: "col-xs-3" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <span class="badge badge-danger">必須</span><%= f.label :パスワード, class: "col-xs-3" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :ログイン状態を保持する %>
+        </div>
+        <% end %>
+        <div class="actions">
+          <p><%= f.submit "ログイン", class: "btn btn3 col-sm-12" %></p>
+        </div>
+      <% end %>
+      <p><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "btn btn4 col-sm-12" %></p>
+      <p><%= render "users/shared/links" %></p>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

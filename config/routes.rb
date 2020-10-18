@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  
 
-devise_for :users, :controllers => {
+# device
+devise_for :users,  :controllers => {
   :registrations => 'users/registrations',
-  :sessions => 'users/sessions'   
+  :sessions => 'users/sessions'
 } 
 
 devise_scope :user do
@@ -12,10 +12,16 @@ devise_scope :user do
   get "login", :to => "users/sessions#new"
   get "logout", :to => "users/sessions#destroy"
 end
+# ゲストログイン
+devise_scope :user do
+  post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+end
+
+resources :users, :only => [:show]
 
   root 'pages#home'
-  get  '/howto',    to: 'pages#howto'
-  get  '/terms',    to: 'pages#terms'
-  get  '/privacy',  to: 'pages#privacy'
+  get  '/howto',   to: 'pages#howto'
+  get  '/terms',   to: 'pages#terms'
+  get  '/privacy', to: 'pages#privacy'
 
 end
