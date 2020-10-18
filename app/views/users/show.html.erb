@@ -1,0 +1,27 @@
+<div class="container">
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <img src=<%= @user.image %> class = "icon_image">
+      <h1><%= @user.name %></h1>
+      <span><%= @user.self_introduction %></span>
+      <span><%= @user.sex %></span>
+      <span><%= @user.age %></span>
+      <% if @user == current_user %>
+        <br>
+        <span>*以下は他のユーザーからは見えません</span>
+        <span>--------------------------------------------</span>
+        
+        <span><%= @user.email %></span>
+      <% end %>
+      <%= link_to ' プロフィール編集', edit_user_registration_path %>
+    </section>
+    <section class="self-intro">
+    <%= @user.self_introduction %>
+    </section>
+  </aside>
+  
+  <div class="col-md-9">
+   <h1>メイン</h1>
+  </div>
+</div>
