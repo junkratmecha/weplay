@@ -14,6 +14,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap'
+gem 'bootstrap-sass', '3.3.6'
 gem 'font-awesome-sass'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
@@ -27,6 +28,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "rspec-rails"
   gem "factory_bot_rails"
+  gem 'rails-controller-testing'
   gem "sqlite3", "~> 1.3.6"
 end
 
