@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-12 text-center">
-      <h3><strong>Hareyakaはじめてガイド</strong></h3>
-      <hr class="titleHr">
+      <p class="example1 text-center padding-top">パーティープレイの始め方</p>
     </div>
   </div>
 </div>
@@ -10,135 +9,96 @@
   <div class="row">
     <%# サイドバー %>
     <div class="greeting col-lg-4">
-      <h6 class="greeting-sentence">はじめまして。</h6>
-      <h6 class="greeting-sentence">Hareyakaをご覧頂きありがとうございます。</h6>
-      <h6 class="greeting-sentence">
-        こちらはHareyakaをより知ってもらうための<br>
-        ガイドページです。
-      </h6>
-      <h6 class="greeting-sentence">
-        使い方がわからない時はこのガイドを参考に<br>
-        していただけると幸いです。
+      <h4 class="text-center">本サイト利用者の皆様へ</h4>
+      <hr class="titleHr">
+      <h6 class="greeting-sentence">①PSでのパーティープレイが初めての方<br/>
+      ②We Playの使い方が分からないという方<br/>&emsp;→右のガイドを参考に始めよう！</h6>
+      <h6 style="color: grey;">※プレイステーションのアップデート等に合わせ本ガイドも修正していきますが、
+      最新の状況と異なりましたら、お問い合わせよりご連絡ください。
       </h6>
     </div>
 
     <%# ガイド本文 %>
     <div class="col-lg-8">
-      <div class="individual">
-        <h4 class="text-center">個人会員の皆様へ</h4>
-        <hr class="titleHr">
-        
-        <%# コンテンツ1 %>
-        <div class="guide-content">
-          <div class="guide-title">
-            <h5><strong>1）はじめに</strong></h5>
-          </div>
-          <div class="guide-body">
-            <p>Hareyakaは、会員制のサイトです。</p>
-            <p>記事の閲覧はログインが不要ですが、記事のお気に入り/企業のフォロー・DM等のサービスのご利用にはログインが必要です。</p>
-            <p>はじめてのご利用の際はまず上部ヘッダーから新規会員登録をよろしくお願いします。</p>
-            <p style="color: red;">※ポートフォリオ用にゲストログイン機能を実装しております。ヘッダーのログインリンクよりお進みください。</p>
-          </div>
+      <h4 class="text-center">PSでのパーティープレイ</h4>
+      <hr class="titleHr">
+      <%# コンテンツ1 %>
+      <div class="guide-content">
+        <div class="page_title">
+          <h5><strong>1）パーティープレイへの準備</strong></h5>
         </div>
-        
-        <%# コンテンツ2 %>
-        <div class="guide-content">
-          <div class="guide-title">
-            <h5><strong>2）マイページを編集しよう</strong></h5>
-          </div>
-          <div class="guide-body">
-            <p>Hareyakaは企業とのコミュニケーションをとることができるサービスです。</p>
-            <p>マイページに自己紹介文を書くことで、あなたからの連絡をはじめて受けた企業は</p>
-            <p>あなたがどんなことへの悩み、興味を持っているのかを知ることができます。</p>
-            <p>自分を知ってもらうためにも是非、自己紹介文を充実させましょう！</p>
-          </div>
-          <p><strong>【自己紹介文の作成方法】</strong></p>
-          <div class="guide-explanation">
-            <p>・ログイン後、画面右上のマイページをクリックします。</p>
-            <%= image_tag 'team_black1.png', class: "guide-image" %>
-          </div>
-          <div class="guide-explanation">
-            <p>・会員登録情報が表示されますので、一番下の"編集する"をクリックします。</p>
-            <%= image_tag 'team_black1.png', class: "guide-image" %>
-          </div>
-          <div class="guide-explanation">
-            <p>
-              ・登録情報編集フォームが表示されますので、一番下の自己紹介文の欄に文章を入力し、"変更を保存する"をクリックします。これでマイページの編集は完了です！
-            </p>
-            <%= image_tag 'team_black1.png', class: "guide-image" %>
-          </div>
-        </div>
-        
-        <%# コンテンツ3 %>
-        <div class="guide-content">
-          <div class="guide-title">
-            <h5><strong>3）記事を読んでみる</strong></h5>
-          </div>
-          <div class="guide-body">
-            <p>様々な企業がそれぞれ専門とする分野についての記事を掲載しています。</p>
-            <p>是非いろいろな記事を読んでみましょう！</p>
-          </div>
-          <div class="guide-explanation">
-            <%= image_tag 'team_black1.png', class: "guide-image" %>
-          </div>
-        </div>
-        
-        <%# コンテンツ4 %>
-        <div class="guide-content">
-          <div class="guide-title">
-            <h5><strong>4）記事のお気に入り、会社のフォローをしよう</strong></h5>
-          </div>
-          <div class="guide-body">
-            <p>気になる記事や会社があったら、お気に入り/フォローをしましょう。</p>
-            <p>後で読み返したいと思ったときや、会社のプロフィールを見たいときに便利です。</p>
-          </div>
-          <p><strong>【お気に入り割合の確認】</strong></p>
-          <div class="guide-explanation">
-            <p>マイページのお気に入り欄で、お気に入り記事のジャンル割合を確認できます。</p>
-            <p>割合が多いものは、実は自分では気づかなかった悩みの元かもしれません。</p>
-            <p>定期的に確認してみましょう！</p>
-            <%= image_tag 'team_black1.png', class: "guide-image" %>
-          </div>
-        </div>
-        
-        <%# コンテンツ5 %>
-        <div class="guide-content">
-          <div class="guide-title">
-            <h5><strong>5）会社へDMを送ろう</strong></h5>
-          </div>
-          <div class="guide-body">
-            <p>記事について聞きたいことや、相談したい悩みがあれば会社にメッセージを送りましょう。</p>
-            <p>あなたの悩み、一緒に解決します。</p>
-          </div>
-          <p><strong>【DMの方法】</strong></p>
-          <div class="guide-explanation">
-            <p>・ログイン後、記事詳細の一番下にある"この記事の話をもっと聞きたい！"をクリックします。</p>
-            <%= image_tag 'team_black1.png', class: "guide-image" %>
-          </div>
-          <div class="guide-explanation">
-            <p>・企業詳細ページが表示されますので、"DMを始める"をクリックします。</p>
-            <p>・先ほどの記事詳細ページ以外にも、専門家リストやフォローリストからも企業詳細ページへ遷移可能です。</p>
-            <%= image_tag 'team_black1.png', class: "guide-image" %>
-          </div>
-          <div class="guide-explanation">
-            <p>クリックするとDM送信フォームが表示されますので、お悩みやご相談を入力し送信しましょう。これでDMの送信は完了です！</p>
-            <p>企業からの返信はヘッダー右上のDM通知欄に表示されます。返信が来るまでお待ちください。</p>
-          </div>
-        </div>
-        
-        <%# コンテンツ6 %>
-        <div class="guide-content">
-          <div class="guide-title">
-            <h5><strong>6）最後に</strong></h5>
-          </div>
-          <div class="guide-body">
-            <p>いかがでしたでしょうか。</p>
-            <p>Hareyakaはあなたの悩みを企業と共に解決していきます。</p>
-            <p>一人で悩まずに、是非ご相談ください。</p>
-          </div>
+        <div class="guide-body">
+          <p>まずはパーティープレイを始めるための必須な準備についておさらいしましょう。</p>
+          <p>PSでオンラインマルチプレイを楽しむには、PlayStation®Plusに加入していることが必要です。</p>
+          <br/><%= image_tag 'psplus.jpg', class: "guide-image1" %>
+          <p><br/>またPSでは、ヘッドセットを接続するだけで、簡単にパーティーを作ってボイスチャットを楽しむことができますので、マイク付きヘッドホンも準備しましょう。</p>
+          <%= image_tag 'headphone.jpg', class: "guide-image2" %>
+          <p><br/>①プレイステーション本体②遊びたいゲームソフト③PS Plus加入④マイク付きヘッドホン</p>
+          <p>この4つが揃えば必要な物は他にありません。これで準備完了です。</p>
         </div>
       </div>
-
+      
+      <%# コンテンツ2 %>
+      <div class="guide-content">
+        <div class="page_title">
+          <h5><strong>2）PS Networkでのフレンドになり方</strong></h5>
+        </div>
+        <div class="guide-body">
+          <p>パーティープレイをするにはPS Networkでフレンドになる必要があります。</p>
+          <p>まずはPS4の電源を入れてメニュー画面の「フレンド」を選択してください。</p>
+          <br/><%= image_tag 'psfriend1.jpg', class: "guide-image1" %>
+          <p><br/>次にフレンドの画面の「検索」からフレンド申請する相手のPSIDか名前を入力しましょう。</p>
+          <p style="color: red;">We Playでは、一緒に遊ぶクランや仲間が探せ、PSIDを交換できます！！</p>
+          <br/><%= image_tag 'psfriend2.jpg', class: "guide-image1" %>
+          <p><br/>検索すると候補が表示されるので、フレンドになりたいプレーヤーを選択しましょう。</p>
+          <p>IDの右横にあるアバターのマーク押しても申請ができます。</p>
+          <br/><%= image_tag 'psfriend3.jpg', class: "guide-image1" %>
+          <p><br/>相手が本当に本人かどうか確認出来たら、「フレンド依頼を送信」を選択しましょう。</p>
+          <p>フレンド依頼時にはメッセージを添えることもできます。</p>
+          <br/><%= image_tag 'psfriend4.jpg', class: "guide-image1" %>
+          <p><br/>フレンド依頼を受けた場合は、お知らせから「フレンドに追加する」を選びましょう。</p>
+          <br/><%= image_tag 'psfriend5.jpg', class: "guide-image1" %>
+        </div>
+      </div>
+      
+      <%# コンテンツ3 %>
+      <div class="guide-content">
+        <div class="page_title">
+          <h5><strong>3）フレンドとパーティーを作ろう！</strong></h5>
+        </div>
+        <div class="guide-body">
+          <p>さて、ここまで来ればもうすくですね！</p>
+          <p>ホーム画面からパーティーを選択します。</p>
+          <p style="color: gray;">*)PS本体が最新のシステムソフトウェアにアップデートされている必要があります</p>
+          <br/><%= image_tag 'psparty1.jpg', class: "guide-image1" %>
+          <p><br/>［パーティーを作成する］を選択して、名前とプレーヤー数を決めましょう。</p>
+          <p>パーティーを非公開にすると招待されたフレンドしかパーティーに参加できません。</p>
+          <br/><%= image_tag 'psparty3.jpg', class: "guide-image1" %>
+          <p><br/>［招待する］＞［プレーヤーを招待する］を選択します。</p>
+          <br/><%= image_tag 'psparty4.png', class: "guide-image1" %>
+          <p><br/>フレンドリストから招待したいフレンドをチェックし、［招待する］を選択してください。</p>
+          <br/><%= image_tag 'psparty5.jpg', class: "guide-image1" %>
+          <p><br/>招待を受けたフレンドはお知らせが届きます。</p>
+          <br/><%= image_tag 'psparty6.jpg', class: "guide-image1" %>
+          <p><br/>お知らせの中を確認して［参加する］を選択すればボイスチャットが始まります。</p>
+          <br/><%= image_tag 'psparty7.jpg', class: "guide-image1" %>
+        </div>
+      </div>
+      
+      <%# コンテンツ4 %>
+      <div class="guide-content">
+        <div class="page_title">
+          <h5><strong>4）設定を[パーティーのチャットを優先]にしよう！</strong></h5>
+        </div>
+        <div class="guide-body">
+          <p>ゲームソフトによっては、ゲーム内の機能としてボイスチャットを利用できるものもあります。</p>
+          <p>フレンドとのプレイ中に、ほかのユーザーに会話が筒抜けになったり声が聞こえたりして、</p>
+          <p>気軽に話せなくて困るという方もいるかもしれません。</p>
+          <br/><%= image_tag 'psparty8.jpg', class: "guide-image1" %>
+          <p><br/>上のようにクイックメニューの[チャット音声]で[パーティーのチャットを優先する]を選べば、</p>
+          <p>ゲーム内機能のチャットは使わず、｢パーティー｣メンバーだけの会話ができるようになります。</p>
+        </div>
+      </div>
     <%# ここまでガイド本文 %>
     </div>
   </div>

@@ -1,3 +1,4 @@
+<%= devise_error_messages %>
 <div class="container">
   <div class="row">
     <div class="offset-sm-2 col-sm-8 offset-sm-2">
@@ -54,9 +55,9 @@
             <p><%= f.submit "登録", class: "btn btn3 col-sm-12" %></p>
           </div>
 
-          <h5><%= link_to "利用規約・お問い合わせ", terms_path %></h5>
-          <h5><%= link_to "プライバシーポリシー", privacy_path %></h5>
-          <p><%= render "users/shared/links" %></p>
+          <h6 style="color: grey;"><%= link_to "利用規約・お問い合わせ", terms_path %></h6>
+          <h6 style="color: grey;"><%= link_to "プライバシーポリシー", privacy_path %></h6>
+          <h6 style="color: grey;"><%= render "users/shared/links" %></h6>
       <% end %>
     </div>
   </div>

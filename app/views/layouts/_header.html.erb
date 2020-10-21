@@ -5,18 +5,29 @@
     <% end %>
     <div class="collapse navbar-collapse" id="navmenu1">
       <% if user_signed_in? %>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><img src=<%= current_user.image %> class = "icon_image_mini">
-              <%= link_to current_user.name, current_user %></li>
-        </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クラン', "#" %></li>
-          <li class="nav-item"><i class="fas fa-user"></i><%= link_to ' マイページ', current_user %></li>
-          <li class="nav-item"><i class="fas fa-sign-in-alt"></i><%= link_to ' ログアウト', destroy_user_session_path, method: :delete%></li>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', "#" %></li>
+          <% if current_user.image? %>
+            <img src=<%= current_user.image %> class = "icon_image_mini">
+          <% else %>
+            <%= image_tag 'default-user-image.png', class: "icon_image_mini" %>
+          <% end %>
+          <li class="nav-item row-wrap">
+              <div class="dropdown"> 
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class = "menu_item"><p><%= link_to 'マイページ', current_user %></p></li>
+                  <li class = "menu_item"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
+                  <li class = "menu_item"><%= link_to 'メッセージ', "#" %></li>
+                  <li class="divider"></li>
+                  <li class = "menu_item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </div>
+          </li>
         </ul>
       <% else %>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クラン', "#" %></li>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', "#" %></li>
           <li class="nav-item"><i class="fas fa-user"></i><%= link_to ' ユーザー登録', new_user_registration_path %></li>
           <li class="nav-item"><i class="fas fa-sign-in-alt"></i><%= link_to ' ログイン', new_user_session_path %></li>
         </ul>

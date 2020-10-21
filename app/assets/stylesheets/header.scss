@@ -1,6 +1,6 @@
 header{
   /* bodyとの高さを調整 */
-  margin-bottom: 120px;
+  margin-bottom: 70px;
 }
 
 .header-nav{
@@ -10,6 +10,7 @@ header{
   border-bottom: 1px #d9d9d9 solid;
 
   .nav-item{
+    margin: auto;
     a{
       color: #010ca3;
       text-decoration: none;
@@ -51,9 +52,11 @@ dl.searchbox dd{
   border: none;
 }
 
-#box2{
-  background-color: gray;
+.menu_item {
+  text-align: center;
+  
 }
-#box1{
-  background-color: #fff;
+
+.menu_item:hover {
+  background-color: rgb(214, 214, 214);
 }

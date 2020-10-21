@@ -59,8 +59,9 @@ a{
   margin-bottom: 120px;
 }
 
-.iphone{
+.top_image{
   width: 100%;
+  margin-top: 50px;
 }
 // トップページ
 .btn1{
@@ -75,7 +76,24 @@ a{
   background-image: linear-gradient(260deg, #4e62d6, #3a51d3);
   color: #fff;
 }
+// ちょっとしたボタン・プロフィール編集等
+.btn2{
+  color: #fff;
+  background-color: #010ca3;
+  width: 140px;
+  height: 30px;
+  font-size: small;
+  margin: 0px 0px 20px 0px;
+}
+.btn2:hover {
+  background-color: #3a51d3;
+  color: #fff;
+}
 
+.btn1:hover {
+  background-image: linear-gradient(260deg, #4e62d6, #3a51d3);
+  color: #fff;
+}
 // deviceクリック(yes)
 .btn3{
   background-image: linear-gradient(260deg, #3a51d3, #010ca3);
@@ -99,6 +117,18 @@ a{
   background-color: #9e9e9e;
   color: #fff;
 }
+
+.btn_red{
+  background-color: brown;
+  margin: 30px 0px 0px 0;
+  color: #fff;
+}
+
+.btn_red:hover {
+  background-color: rgb(185, 80, 80);
+  color: #fff;
+}
+
 
 .top-message{
   margin-top: 50px;
@@ -126,7 +156,20 @@ a{
   background-color: #fff;
 }
 
-// トップ大文字・device見出し
+.box3 {
+  padding: 0.5em 1em;
+  background: #FFF;
+  border: solid 3px #010ca3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+.box3 p {
+  margin: 0; 
+  padding: 0;
+}
+
+
+
+// トップ大文字・device見出し・pages見出し
 p.example1 {
   font-size: xx-large; 
   text-decoration: none;
@@ -134,24 +177,10 @@ p.example1 {
   font-weight: bold;
 }
 
-p.example2 {
-  font-size: large; 
-  text-decoration: none;
-  margin-bottom: 10px;
+p.padding-top{
+  padding-top: 20px;
 }
 
-p.example3 {
-  font-size: small; 
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-p.example4 {
-  font-size: xx-large; 
-  text-decoration: none;
-  padding-top: 50px;
-  margin-bottom: 100px;
-}
 
 .icon_image {
   width: 200px;
@@ -163,6 +192,16 @@ p.example4 {
   //タテヨコ比を変えないままトリミング
 }
 
+.co-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
 .icon_image_mini {
   width: 40px;
   height: 40px;
@@ -171,4 +210,11 @@ p.example4 {
   //画像を丸くする
   object-fit: cover;
   //タテヨコ比を変えないままトリミング
+}
+
+#box2{
+  background-color: white;
+}
+#box1{
+  background-color: white;
 }
