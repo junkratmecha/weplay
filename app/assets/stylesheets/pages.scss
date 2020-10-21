@@ -15,6 +15,19 @@
     color: #454545;
   }
 
+  .page_title{
+    padding: 8px 19px;
+    margin: 2em 0;
+    color: #010ca3;
+    background: #fff;
+    border-top: solid 5px #010ca3;
+    border-bottom: solid 5px #010ca3;
+  }
+  .box4 p {
+      margin: 0; 
+      padding: 0;
+  }
+
   .guide-body{
     margin-bottom: 60px;
   }
@@ -23,7 +36,11 @@
     margin-bottom: 60px;
   }
 
-  .guide-image{
+  .guide-image1{
     width: 100%;
+  }
+  .guide-image2{
+    width: 200px;
+    height: 200px;
   }
 }
