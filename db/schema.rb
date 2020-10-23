@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201016060717) do
+ActiveRecord::Schema.define(version: 20201021063543) do
+
+  create_table "belongings", force: :cascade do |t|
+    t.integer "clan_id"
+    t.integer "user_id"
+    t.integer "admin_flg", default: 0
+    t.index ["clan_id"], name: "index_belongings_on_clan_id"
+    t.index ["user_id"], name: "index_belongings_on_user_id"
+  end
+
+  create_table "clans", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image"
+    t.string "level"
+    t.string "clan_introduction", limit: 400
+    t.integer "status"
+    t.integer "atomosphere"
+    t.integer "average_age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "clan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +50,7 @@ ActiveRecord::Schema.define(version: 20201016060717) do
     t.boolean "admin", default: false
     t.string "name", default: "", null: false
     t.string "psid"
+    t.string "address"
     t.integer "age"
     t.integer "sex"
     t.string "self_introduction", limit: 400

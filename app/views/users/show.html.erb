@@ -7,18 +7,21 @@
         <% else %>
           <%= image_tag 'default-user-image.png', class: "icon_image" %>
         <% end %>
-        <h1 style="font-weight: bold;"><%= @user.name %></h1>
+        <p class="example2 text-center"><%= @user.name %></p><br/>
         <div class="co-wrap">
-          <span>性別：<%= @user.sex %></span>
-          <span>年齢：<%= @user.age %></span>
-          <span>PSID：<%= @user.psid %></span>
-        </dic>
-        <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn2"  %>
+          <table>
+            <tr><th>PSID</th><td><%= @user.psid %></td></tr>
+            <tr><th>性別</th><td><%= @user.sex %></td></tr>
+            <tr><th>年齢</th><td><%= @user.age %></td></tr>
+            <tr><th>地域</th><td><%= @user.address %></td></tr>
+          </table>
+        </div>
+        <br/><%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn2"  %>
       </section>
       <section class="self-intro">
         <p style="font-weight: bold;">自己紹介</p>
         <div class="box3">
-          <p><%= @user.self_introduction %></p>
+          <%=safe_join(@user.self_introduction.split("\n"),tag(:br))%>
         </div>
       </section>
     </aside>

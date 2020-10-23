@@ -1,0 +1,28 @@
+.icon_image_mini {
+  width: 40px;
+  height: 40px;
+  //サイズ指定
+  border-radius: 20px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
+.icon_image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  //サイズ指定
+  border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
+.clan_image {
+  width: 200px;
+  height: 200px;
+  //サイズ指定
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
