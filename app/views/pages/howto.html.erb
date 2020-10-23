@@ -18,88 +18,120 @@
       </h6>
     </div>
 
-    <%# ガイド本文 %>
     <div class="col-lg-8">
-      <h4 class="text-center">PSでのパーティープレイ</h4>
-      <hr class="titleHr">
-      <%# コンテンツ1 %>
-      <div class="guide-content">
-        <div class="page_title">
-          <h5><strong>1）パーティープレイへの準備</strong></h5>
+
+    <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="home" aria-expanded="true">PSでのパーティープレイ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile">We Playの使い方</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="1-tab">
+          <div class="tab-pane-header">
+
+            <%# コンテンツ1 %>
+            <div class="guide-content">
+              <div class="page_title">
+                <h5><strong>1）パーティープレイへの準備</strong></h5>
+              </div>
+              <div class="guide-body">
+                <p>まずはパーティープレイを始めるための必須な準備についておさらいしましょう。</p>
+                <p>PSでオンラインマルチプレイを楽しむには、PlayStation®Plusに加入していることが必要です。</p>
+                <br/><%= image_tag 'psplus.jpg', class: "guide-image1" %>
+                <p><br/>またPSでは、ヘッドセットを接続するだけで、簡単にパーティーを作ってボイスチャットを楽しむことができますので、マイク付きヘッドホンも準備しましょう。</p>
+                <%= image_tag 'headphone.jpg', class: "guide-image2" %>
+                <p><br/>①プレイステーション本体②遊びたいゲームソフト③PS Plus加入④マイク付きヘッドホン</p>
+                <p>この4つが揃えば必要な物は他にありません。これで準備完了です。</p>
+              </div>
+            </div>
+
+            <%# コンテンツ2 %>
+            <div class="guide-content">
+              <div class="page_title">
+                <h5><strong>2）PS Networkでのフレンドになり方</strong></h5>
+              </div>
+              <div class="guide-body">
+                <p>パーティープレイをするにはPS Networkでフレンドになる必要があります。</p>
+                <p>まずはPS4の電源を入れてメニュー画面の「フレンド」を選択してください。</p>
+                <br/><%= image_tag 'psfriend1.jpg', class: "guide-image1" %>
+                <p><br/>次にフレンドの画面の「検索」からフレンド申請する相手のPSIDか名前を入力しましょう。</p>
+                <p style="color: red;">We Playでは、一緒に遊ぶクランや仲間が探せ、PSIDを交換できます！！</p>
+                <br/><%= image_tag 'psfriend2.jpg', class: "guide-image1" %>
+                <p><br/>検索すると候補が表示されるので、フレンドになりたいプレーヤーを選択しましょう。</p>
+                <p>IDの右横にあるアバターのマーク押しても申請ができます。</p>
+                <br/><%= image_tag 'psfriend3.jpg', class: "guide-image1" %>
+                <p><br/>相手が本当に本人かどうか確認出来たら、「フレンド依頼を送信」を選択しましょう。</p>
+                <p>フレンド依頼時にはメッセージを添えることもできます。</p>
+                <br/><%= image_tag 'psfriend4.jpg', class: "guide-image1" %>
+                <p><br/>フレンド依頼を受けた場合は、お知らせから「フレンドに追加する」を選びましょう。</p>
+                <br/><%= image_tag 'psfriend5.jpg', class: "guide-image1" %>
+              </div>
+            </div>
+
+            <%# コンテンツ3 %>
+            <div class="guide-content">
+              <div class="page_title">
+                <h5><strong>3）フレンドとパーティーを作ろう！</strong></h5>
+              </div>
+              <div class="guide-body">
+                <p>さて、ここまで来ればもうすくですね！</p>
+                <p>ホーム画面からパーティーを選択します。</p>
+                <p style="color: gray;">*)PS本体が最新のシステムソフトウェアにアップデートされている必要があります</p>
+                <br/><%= image_tag 'psparty1.jpg', class: "guide-image1" %>
+                <p><br/>［パーティーを作成する］を選択して、名前とプレーヤー数を決めましょう。</p>
+                <p>パーティーを非公開にすると招待されたフレンドしかパーティーに参加できません。</p>
+                <br/><%= image_tag 'psparty3.jpg', class: "guide-image1" %>
+                <p><br/>［招待する］＞［プレーヤーを招待する］を選択します。</p>
+                <br/><%= image_tag 'psparty4.png', class: "guide-image1" %>
+                <p><br/>フレンドリストから招待したいフレンドをチェックし、［招待する］を選択してください。</p>
+                <br/><%= image_tag 'psparty5.jpg', class: "guide-image1" %>
+                <p><br/>招待を受けたフレンドはお知らせが届きます。</p>
+                <br/><%= image_tag 'psparty6.jpg', class: "guide-image1" %>
+                <p><br/>お知らせの中を確認して［参加する］を選択すればボイスチャットが始まります。</p>
+                <br/><%= image_tag 'psparty7.jpg', class: "guide-image1" %>
+              </div>
+            </div>
+
+            <%# コンテンツ4 %>
+            <div class="guide-content">
+              <div class="page_title">
+                <h5><strong>4）設定を[パーティーのチャットを優先]にしよう！</strong></h5>
+              </div>
+              <div class="guide-body">
+                <p>ゲームソフトによっては、ゲーム内の機能としてボイスチャットを利用できるものもあります。</p>
+                <p>フレンドとのプレイ中に、ほかのユーザーに会話が筒抜けになったり声が聞こえたりして、</p>
+                <p>気軽に話せなくて困るという方もいるかもしれません。</p>
+                <br/><%= image_tag 'psparty8.jpg', class: "guide-image1" %>
+                <p><br/>上のようにクイックメニューの[チャット音声]で[パーティーのチャットを優先する]を選べば、</p>
+                <p>ゲーム内機能のチャットは使わず、｢パーティー｣メンバーだけの会話ができるようになります。</p>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="guide-body">
-          <p>まずはパーティープレイを始めるための必須な準備についておさらいしましょう。</p>
-          <p>PSでオンラインマルチプレイを楽しむには、PlayStation®Plusに加入していることが必要です。</p>
-          <br/><%= image_tag 'psplus.jpg', class: "guide-image1" %>
-          <p><br/>またPSでは、ヘッドセットを接続するだけで、簡単にパーティーを作ってボイスチャットを楽しむことができますので、マイク付きヘッドホンも準備しましょう。</p>
-          <%= image_tag 'headphone.jpg', class: "guide-image2" %>
-          <p><br/>①プレイステーション本体②遊びたいゲームソフト③PS Plus加入④マイク付きヘッドホン</p>
-          <p>この4つが揃えば必要な物は他にありません。これで準備完了です。</p>
+
+        <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="2-tab">
+          <div class="tab-pane-header">
+            <h2>Navivation Title (Nav-Tab 2)</h2>
+            <h5>Navigation subtitle</h5>
+            <p class="lead">
+              <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum vero magni suscipit, fuga repellat quaerat eius minima vel, distinctio dignissimos labore esse harum, consequatur rem explicabo molestias aliquid saepe autem?</div>
+            </p>
+            <a href="#tab2" target="_blank">Link directly to this tab</a>
+          </div>
         </div>
-      </div>
       
-      <%# コンテンツ2 %>
-      <div class="guide-content">
-        <div class="page_title">
-          <h5><strong>2）PS Networkでのフレンドになり方</strong></h5>
         </div>
-        <div class="guide-body">
-          <p>パーティープレイをするにはPS Networkでフレンドになる必要があります。</p>
-          <p>まずはPS4の電源を入れてメニュー画面の「フレンド」を選択してください。</p>
-          <br/><%= image_tag 'psfriend1.jpg', class: "guide-image1" %>
-          <p><br/>次にフレンドの画面の「検索」からフレンド申請する相手のPSIDか名前を入力しましょう。</p>
-          <p style="color: red;">We Playでは、一緒に遊ぶクランや仲間が探せ、PSIDを交換できます！！</p>
-          <br/><%= image_tag 'psfriend2.jpg', class: "guide-image1" %>
-          <p><br/>検索すると候補が表示されるので、フレンドになりたいプレーヤーを選択しましょう。</p>
-          <p>IDの右横にあるアバターのマーク押しても申請ができます。</p>
-          <br/><%= image_tag 'psfriend3.jpg', class: "guide-image1" %>
-          <p><br/>相手が本当に本人かどうか確認出来たら、「フレンド依頼を送信」を選択しましょう。</p>
-          <p>フレンド依頼時にはメッセージを添えることもできます。</p>
-          <br/><%= image_tag 'psfriend4.jpg', class: "guide-image1" %>
-          <p><br/>フレンド依頼を受けた場合は、お知らせから「フレンドに追加する」を選びましょう。</p>
-          <br/><%= image_tag 'psfriend5.jpg', class: "guide-image1" %>
-        </div>
-      </div>
+    </div>
+
+    
       
-      <%# コンテンツ3 %>
-      <div class="guide-content">
-        <div class="page_title">
-          <h5><strong>3）フレンドとパーティーを作ろう！</strong></h5>
-        </div>
-        <div class="guide-body">
-          <p>さて、ここまで来ればもうすくですね！</p>
-          <p>ホーム画面からパーティーを選択します。</p>
-          <p style="color: gray;">*)PS本体が最新のシステムソフトウェアにアップデートされている必要があります</p>
-          <br/><%= image_tag 'psparty1.jpg', class: "guide-image1" %>
-          <p><br/>［パーティーを作成する］を選択して、名前とプレーヤー数を決めましょう。</p>
-          <p>パーティーを非公開にすると招待されたフレンドしかパーティーに参加できません。</p>
-          <br/><%= image_tag 'psparty3.jpg', class: "guide-image1" %>
-          <p><br/>［招待する］＞［プレーヤーを招待する］を選択します。</p>
-          <br/><%= image_tag 'psparty4.png', class: "guide-image1" %>
-          <p><br/>フレンドリストから招待したいフレンドをチェックし、［招待する］を選択してください。</p>
-          <br/><%= image_tag 'psparty5.jpg', class: "guide-image1" %>
-          <p><br/>招待を受けたフレンドはお知らせが届きます。</p>
-          <br/><%= image_tag 'psparty6.jpg', class: "guide-image1" %>
-          <p><br/>お知らせの中を確認して［参加する］を選択すればボイスチャットが始まります。</p>
-          <br/><%= image_tag 'psparty7.jpg', class: "guide-image1" %>
-        </div>
-      </div>
-      
-      <%# コンテンツ4 %>
-      <div class="guide-content">
-        <div class="page_title">
-          <h5><strong>4）設定を[パーティーのチャットを優先]にしよう！</strong></h5>
-        </div>
-        <div class="guide-body">
-          <p>ゲームソフトによっては、ゲーム内の機能としてボイスチャットを利用できるものもあります。</p>
-          <p>フレンドとのプレイ中に、ほかのユーザーに会話が筒抜けになったり声が聞こえたりして、</p>
-          <p>気軽に話せなくて困るという方もいるかもしれません。</p>
-          <br/><%= image_tag 'psparty8.jpg', class: "guide-image1" %>
-          <p><br/>上のようにクイックメニューの[チャット音声]で[パーティーのチャットを優先する]を選べば、</p>
-          <p>ゲーム内機能のチャットは使わず、｢パーティー｣メンバーだけの会話ができるようになります。</p>
-        </div>
-      </div>
-    <%# ここまでガイド本文 %>
     </div>
   </div>
 </div>
+

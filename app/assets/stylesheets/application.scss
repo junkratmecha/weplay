@@ -4,6 +4,9 @@
 @import "header";
 @import "footer";
 @import "pages";
+@import "image";
+@import "user";
+@import "clan";
 
 // body
 .body{
@@ -177,20 +180,17 @@ p.example1 {
   font-weight: bold;
 }
 
+//ユーザープロフィール用
+p.example2 {
+  font-size: x-large; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
 p.padding-top{
   padding-top: 20px;
 }
 
-
-.icon_image {
-  width: 200px;
-  height: 200px;
-  //サイズ指定
-  border-radius: 100px;
-  //画像を丸くする
-  object-fit: cover;
-  //タテヨコ比を変えないままトリミング
-}
 
 .co-wrap {
   display: flex;
@@ -200,16 +200,6 @@ p.padding-top{
 .row-wrap {
   display: flex;
   flex-direction: row;
-}
-
-.icon_image_mini {
-  width: 40px;
-  height: 40px;
-  //サイズ指定
-  border-radius: 20px;
-  //画像を丸くする
-  object-fit: cover;
-  //タテヨコ比を変えないままトリミング
 }
 
 #box2{

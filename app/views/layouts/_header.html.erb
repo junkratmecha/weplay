@@ -6,7 +6,8 @@
     <div class="collapse navbar-collapse" id="navmenu1">
       <% if user_signed_in? %>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', "#" %></li>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', clans_path %></li>
+          <li class="nav-item"><i class="fas fa-flag"></i><%= link_to ' クランを作る', new_clan_path %></li>
           <% if current_user.image? %>
             <img src=<%= current_user.image %> class = "icon_image_mini">
           <% else %>
@@ -27,7 +28,7 @@
         </ul>
       <% else %>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', "#" %></li>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', clans_path %></li>
           <li class="nav-item"><i class="fas fa-user"></i><%= link_to ' ユーザー登録', new_user_registration_path %></li>
           <li class="nav-item"><i class="fas fa-sign-in-alt"></i><%= link_to ' ログイン', new_user_session_path %></li>
         </ul>

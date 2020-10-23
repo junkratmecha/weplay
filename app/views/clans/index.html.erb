@@ -1,0 +1,43 @@
+<h1>All clans</h1>
+
+<ul class="clans">
+  <% @clans.each do |clan| %>
+    <li>
+
+
+
+
+
+    <div class="profile-card">
+      <div class="profile-card__inner">
+        <div class="profile-thumb">
+          <% if clan.image? %>
+            <img src=<%= clan.image %>>
+          <% else %>
+            <%= image_tag 'default_clan.png' %>
+          <% end %>
+        </div>
+        <div class="profile-content">
+          <span class="profile-name"><%= link_to clan.name, clan %>(クラン人数)</span>
+          <span class="profile-job">ゲームタグ</span>
+          <span class="profile-intro">
+            <table>
+              <tr><th>ステータス</th><td><%= clan.status %></td></tr>
+              <tr><th>レベル</th><td><%= clan.level %></td></tr>
+              <tr><th>雰囲気</th><td><%= clan.atomosphere %></td></tr>
+              <tr><th>平均年齢</th><td><%= clan.average_age %></td></tr>
+            </table>
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+
+
+      
+    </li>
+  <% end %>
+</ul>
+
+
