@@ -20,4 +20,9 @@ Rails.application.routes.draw do
   get '/howto', to: 'pages#howto'
   get '/terms', to: 'pages#terms'
   get '/privacy', to: 'pages#privacy'
+
+  resources :clans do
+    resources :requests, only: %i(index create destroy)
+    resources :belongings, only: %i(index create destroy)
+  end
 end

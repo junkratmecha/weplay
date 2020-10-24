@@ -1,0 +1,20 @@
+<div class="container applicant-wrapper">
+    <h3>承認待ちユーザ一覧</h3>
+    <div class="row">
+        <% @requests.each do |req| %>
+        <div class="col-6">
+            <% if req.user.image? %>
+                <img src=<%= req.user.image %> class = "icon_image_mini">
+            <% else %>
+                <%= link_to user_path(req.user) do %>
+                    <%= image_tag ("default-user-image.png"), class:"icon_image_mini" %>
+                <% end %>
+            <% end %>
+            &nbsp<%= req.user.name %><br>
+            <%= link_to "承認", clan_belongings_path(req.clan, user_id: req.user.id, request_id: req.id), method: :post, class:"mini-green-link-btn font-bold text-line-none" %>
+            <%= link_to "却下", clan_request_path(req.clan, req), method: :delete, class:"mini-red-link-btn font-bold text-line-none" %>
+            <br>
+        </div>
+        <% end %>
+    </div>
+</div>

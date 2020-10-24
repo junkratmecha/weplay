@@ -4,6 +4,9 @@
 @import "header";
 @import "footer";
 @import "pages";
+@import "image";
+@import "user";
+@import "clan";
 
 // body
 .body{
@@ -90,10 +93,21 @@ a{
   color: #fff;
 }
 
-.btn1:hover {
-  background-image: linear-gradient(260deg, #4e62d6, #3a51d3);
+.btn_mini_red{
+  color: #fff;
+  background-color: brown;
+  width: 140px;
+  height: 30px;
+  font-size: small;
+  margin: 0px 0px 20px 0px;
+}
+.btn_mini_red:hover {
+  background-color: rgb(185, 80, 80);
   color: #fff;
 }
+
+
+
 // deviceクリック(yes)
 .btn3{
   background-image: linear-gradient(260deg, #3a51d3, #010ca3);
@@ -137,9 +151,9 @@ a{
 
 
 
-.about-hareyaka{
+.top_howto{
   width: 100%;
-  margin: 20px 0 100px 0;
+  margin: 20px 0 40px 0;
 }
 
 .top-registraion{
@@ -150,6 +164,7 @@ a{
 
 #box1{
   background-color: #fff;
+  margin-top: 120px;
 }
 
 #box2{
@@ -177,20 +192,17 @@ p.example1 {
   font-weight: bold;
 }
 
+//ユーザープロフィール用
+p.example2 {
+  font-size: x-large; 
+  text-decoration: none;
+  font-weight: bold;
+}
+
 p.padding-top{
   padding-top: 20px;
 }
 
-
-.icon_image {
-  width: 200px;
-  height: 200px;
-  //サイズ指定
-  border-radius: 100px;
-  //画像を丸くする
-  object-fit: cover;
-  //タテヨコ比を変えないままトリミング
-}
 
 .co-wrap {
   display: flex;
@@ -202,19 +214,22 @@ p.padding-top{
   flex-direction: row;
 }
 
-.icon_image_mini {
-  width: 40px;
-  height: 40px;
-  //サイズ指定
-  border-radius: 20px;
-  //画像を丸くする
-  object-fit: cover;
-  //タテヨコ比を変えないままトリミング
-}
-
 #box2{
   background-color: white;
 }
 #box1{
   background-color: white;
+}
+
+// カミナリ
+.pagination{
+  justify-content: center;
+}
+.pagination li a {          
+  color: #010ca3;   /*文字の色を変える*/
+  margin: 0 10px;
+}
+/*ホバー時のデザイン*/
+.pagination li a:hover {        
+  color: #3a51d3;     /*背景の色を変える*/
 }

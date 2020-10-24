@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-sm-2 col-sm-8 offset-sm-2">
+      <p class="example1 text-center">クランプロフィール編集</p>
+      <h6 style="color: grey;">クランプロフィールは登録後いつでも変更できます</h6>
+      <%= form_with(model: @clan, local: true) do |f| %>
+        <div class="field">
+          <%= f.label :アイコン画像 %><br/>
+          <%= f.file_field :image %>
+        </div>
+          <div class="field text-center">
+          <% if @clan.image? %>
+            <img src=<%= @clan.image %> class = "clan_image">
+          <% else %>
+            <%= image_tag 'default_clan.png', class: "clan_image" %>
+          <% end %>
+        </div>
+        <div class="form-group">
+          <span class="badge badge-danger">必須</span><%= f.label :名前 %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :レベル %>
+          <%= f.text_field :level, autofocus: true, autocomplete: "level", class: "form-control" %>
+        </div>
+        <%= f.label :ステータス %><br />
+          <div class="radio-btn">
+          <%= f.label :メンバー募集中  %>
+          <%= f.radio_button :status, :メンバー募集中 %>
+          <%= f.label :非募集  %>
+          <%= f.radio_button :status, :非募集 %>
+          <%= f.label :活動休止中  %>
+          <%= f.radio_button :status, :活動休止中 %>
+        </div>
+        <%= f.label :雰囲気 %><br />
+          <div class="radio-btn">
+          <%= f.label :エンジョイ  %>
+          <%= f.radio_button :atomosphere, :エンジョイ %>
+          <%= f.label :エンジョイandガチ  %>
+          <%= f.radio_button :atomosphere, :エンジョイandガチ %>
+          <%= f.label :ガチ  %>
+          <%= f.radio_button :atomosphere, :ガチ %>
+        </div>
+        <%= f.label :平均年齢 %><br />
+          <div class="radio-btn">
+          <%= f.label :１０代  %>
+          <%= f.radio_button :average_age, :１０代 %>
+          <%= f.label :２０代  %>
+          <%= f.radio_button :average_age, :２０代 %>
+          <%= f.label :３０代  %>
+          <%= f.radio_button :average_age, :３０代 %>
+          <%= f.label :４０代  %>
+          <%= f.radio_button :average_age, :４０代 %>
+          <%= f.label :５０代以上  %>
+          <%= f.radio_button :average_age, :５０代以上 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :クラン紹介 %>
+          <%= f.text_area :clan_introduction, :rows => "7", autofocus: true, autocomplete: "clan_introduction", class: "form-control" %>
+        </div>
+        <div class="actions">
+          <p><%= f.submit "登録", class: "btn btn3 col-sm-12" %></p>
+        </div>
+      <% end %>
+      <p><%= link_to 'クランへ戻る', "#", class: "btn btn4 col-sm-12" %></p>
+      <p><%= link_to "クランを削除する", clan_path, data: { confirm: "本当にクランを削除しますか?" }, method: :delete, class: "btn btn_red col-sm-12" %></p>
+    </div>
+  </div>
+</div>
