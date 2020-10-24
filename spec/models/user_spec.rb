@@ -1,6 +1,5 @@
 require 'rails_helper'
 describe User do
-
   context 'registration sucess case' do
     it "can create user" do
       user = build(:user)
@@ -8,7 +7,7 @@ describe User do
     end
 
     it "can careate user with 8 charakter password" do
-      user = build(:user, password: "a1" * 3 , password_confirmation: "a1" * 3)
+      user = build(:user, password: "a1" * 3, password_confirmation: "a1" * 3)
       expect(user).to be_valid
     end
   end
@@ -61,14 +60,13 @@ describe User do
     end
 
     it "failed when password over128" do
-      user = build(:user, password: "11"*100, password_confirmation: "11"*100)
+      user = build(:user, password: "11" * 100, password_confirmation: "11" * 100)
       expect(user).not_to be_valid
     end
 
     it "failed when passord and password confirmation are not equal" do
-      user = build(:user, password: "aaaa1111" , password_confirmation:  "bbbb2222")
+      user = build(:user, password: "aaaa1111", password_confirmation: "bbbb2222")
       expect(user).not_to be_valid
     end
   end
-
 end

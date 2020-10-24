@@ -1,5 +1,4 @@
 class ClansController < ApplicationController
-  
   def index
     @q = Clan.ransack(params[:q])
     @clans = @q.result(distinct: true).page(params[:page]).per(12)
@@ -50,7 +49,7 @@ class ClansController < ApplicationController
   end
 
   private
-  
+
   def clan_params
     params.require(:clan).permit(
     :name, :image, :level, :status, :atomosphere, :average_age, :clan_introduction, user_ids: []

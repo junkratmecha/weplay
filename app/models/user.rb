@@ -8,14 +8,13 @@ class User < ApplicationRecord
   has_many :belongings, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :clans, through: :belongings
-  
+
   validates :name, presence: true
-  before_save   :downcase_email
+  before_save :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, {presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }}
+  validates :email, { presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } }
 
   def downcase_email
     self.email = email.downcase
   end
-
 end
