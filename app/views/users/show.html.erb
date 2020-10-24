@@ -1,12 +1,21 @@
 <div class="container">
   <div class="row">
+    <div class="offset-sm-0 col-sm-12 offset-sm-0">
+      <div class="guide-content">
+        <div class="page_title text-center">
+          <h5 style="font-size: x-large; font-weight: bold;">マイページ</h5>
+        </div>
+      </div>
+    </div>
     <aside class="col-md-4">
       <section class="user_info">
-        <% if @user.image? %>
-          <img src=<%= @user.image %> class = "icon_image">
-        <% else %>
-          <%= image_tag 'default-user-image.png', class: "icon_image" %>
-        <% end %>
+        <p class = "image_center">
+          <% if @user.image? %>
+            <img src=<%= @user.image %> class = "icon_image">
+          <% else %>
+            <%= image_tag 'default-user-image.png', class: "icon_image" %>
+          <% end %>
+        </p>
         <p class="example2 text-center"><%= @user.name %></p><br/>
         <div class="co-wrap">
           <table>
@@ -21,17 +30,23 @@
       <section class="self-intro">
         <p style="font-weight: bold;">自己紹介</p>
         <div class="box3">
-          <%=safe_join(@user.self_introduction.split("\n"),tag(:br))%>
+          <% if @user.self_introduction? %>
+            <%=safe_join(@user.self_introduction.split("\n"),tag(:br))%>
+          <% else %>
+            <p>自己紹介はまだありません。</p>
+          <% end %>
         </div>
       </section>
     </aside>
-    
-    <div class="col-md-8">
+
+    <div class="col-md-4s">
       <h1>メイン</h1>
       <h1>メイン</h1>
       <h1>メイン</h1>
       <h1>メイン</h1>
       <h1>メイン</h1>
     </div>
+
+    
   </div>
 </div>

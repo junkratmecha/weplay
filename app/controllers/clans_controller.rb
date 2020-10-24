@@ -1,12 +1,14 @@
 class ClansController < ApplicationController
   
   def index
-    @clans = Clan.all
+    @q = Clan.ransack(params[:q])
+    @clans = @q.result(distinct: true).page(params[:page]).per(12)
   end
 
   def show
     @clan = Clan.find(params[:id])
     @requests = Request.where(clan_id: params[:clan_id])
+    @belongings = Belonging.where(clan_id: @clan.id)
     if current_user
       @belonging = Belonging.find_by(clan_id: @clan.id, user_id: current_user.id)
       @request = Request.find_by(clan_id: @clan.id, user_id: current_user.id)

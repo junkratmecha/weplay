@@ -5,7 +5,7 @@ table{
 }
 
 table tr{
-  border-bottom: solid 2px white;
+  border-bottom: solid 1px white;
 }
 
 table tr:last-child{
@@ -39,6 +39,6 @@ table td{
   text-align: left;
   width: 70%;
   text-align: center;
-  background-color: #eee;
+  background-color: rgb(220, 220, 220);
   padding: 10px 0;
 }
