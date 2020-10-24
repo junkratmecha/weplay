@@ -2,7 +2,7 @@ class BelongingsController < ApplicationController
 
   def create
     @belonging = Belonging.create
-    (clan_id: belonging_params[:clan_id], user_id: belonging_params[:user_id])
+    (clan_id = belonging_params[:clan_id], user_id = belonging_params[:user_id])
     Request.find(belonging_params[:request_id]).destroy!
     redirect_to clan_requests_url(@belonging.clan),
     notice: "「#{@belonging.user.name}」が、クラン：#{@belonging.clan.name}へ加入しました。"
