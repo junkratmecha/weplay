@@ -6,7 +6,8 @@
     <div class="collapse navbar-collapse" id="navmenu1">
       <% if user_signed_in? %>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', "#" %></li>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', clans_path %></li>
+          <li class="nav-item"><i class="fas fa-flag"></i><%= link_to ' クランを作る', new_clan_path %></li>
           <% if current_user.image? %>
             <img src=<%= current_user.image %> class = "icon_image_mini">
           <% else %>
@@ -18,7 +19,6 @@
                 <ul class="dropdown-menu">
                   <li class = "menu_item"><p><%= link_to 'マイページ', current_user %></p></li>
                   <li class = "menu_item"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
-                  <li class = "menu_item"><%= link_to 'メッセージ', "#" %></li>
                   <li class="divider"></li>
                   <li class = "menu_item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
                 </ul>
@@ -27,14 +27,11 @@
         </ul>
       <% else %>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', "#" %></li>
+          <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', clans_path %></li>
           <li class="nav-item"><i class="fas fa-user"></i><%= link_to ' ユーザー登録', new_user_registration_path %></li>
           <li class="nav-item"><i class="fas fa-sign-in-alt"></i><%= link_to ' ログイン', new_user_session_path %></li>
         </ul>
       <% end %>
-      <dl class="searchbox">
-        <dt><%= text_field :title_or_body_or_user, placeholder: "キーワードを入力", class: "form-control" %></dt>
-        <dd><button type="submit" class="search-btn"><i class="fas fa-search" style="color: grey;"></i></button></dd>
     </div>
   </nav>
 </header>
