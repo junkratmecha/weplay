@@ -7,7 +7,7 @@
         </div>
       </div>
     </div>
-    <aside class="col-md-4">
+    <aside class="col-md-3">
       <section class="user_info">
         <p class = "image_center">
           <% if @user.image? %>
@@ -17,6 +17,9 @@
           <% end %>
         </p>
         <p class="example2 text-center"><%= @user.name %></p><br/>
+        <% if @user.id == current_user.id %>
+          <div class="text-center"><%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn2" %></div>
+        <% end %>
         <div class="co-wrap">
           <table>
             <tr><th>PSID</th><td><%= @user.psid %></td></tr>
@@ -25,11 +28,9 @@
             <tr><th>地域</th><td><%= @user.address %></td></tr>
           </table>
         </div>
-        <br/><%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn2"  %>
       </section>
       <section class="self-intro">
-        <p style="font-weight: bold;">自己紹介</p>
-        <div class="box3">
+        <div class="intro" >
           <% if @user.self_introduction? %>
             <%=safe_join(@user.self_introduction.split("\n"),tag(:br))%>
           <% else %>
@@ -39,12 +40,42 @@
       </section>
     </aside>
 
-    <div class="col-md-4s">
-      <h1>メイン</h1>
-      <h1>メイン</h1>
-      <h1>メイン</h1>
-      <h1>メイン</h1>
-      <h1>メイン</h1>
+    <div class="col-md-9">
+      <div class="text-center">
+          <p style="font-size: large; font-weight: bold; text-align:center;">所属クラン(最大三つまで)</p>
+      </div>
+      <div class="row-wrap">
+        <% @user.clans.each do |clan| %>
+          <%= link_to clan do %>
+            <div class="profile-card">
+              <div class="profile-card__inner">
+                <div class="profile-thumb">
+                  <% if clan.image? %>
+                    <img src=<%= clan.image %>>
+                  <% else %>
+                    <%= image_tag 'default_clan.png' %>
+                  <% end %>
+                </div>
+                <div class="profile-content">
+                  <span class="profile-name"><%= clan.name %></span>
+                  <span class="profile-job">(<%= clan.users.count %>)</span>
+                  <span class="profile-job">ゲームタグ</span>
+                  <%= link_to clan do %>
+                    <span class="profile-intro">
+                      <table>
+                        <tr><th>ステータス</th><td><%= clan.status %></td></tr>
+                        <tr><th>レベル</th><td><%= clan.level %></td></tr>
+                        <tr><th>雰囲気</th><td><%= clan.atomosphere %></td></tr>
+                        <tr><th>平均年齢</th><td><%= clan.average_age %></td></tr>
+                      </table>
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 
     

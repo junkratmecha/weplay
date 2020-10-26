@@ -1,9 +1,4 @@
 class RequestsController < ApplicationController
-  def index
-    @requests = Request.where(clan_id: params[:clan_id])
-    @clan = Clan.find(params[:clan_id])
-  end
-
   def create
     current_user.requests.create(clan_id: request_params[:clan_id])
     redirect_to clan_url(request_params[:clan_id]), notice: "加入申請しました"
