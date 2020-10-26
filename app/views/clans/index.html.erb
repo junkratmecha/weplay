@@ -28,7 +28,8 @@
                   <% end %>
                 </div>
                 <div class="profile-content">
-                  <span class="profile-name"><%= link_to clan.name, clan %>(クラン人数)</span>
+                  <span class="profile-name"><%= clan.name %></span>
+                  <span class="profile-job">(<%= clan.users.count %>)</span>
                   <span class="profile-job">ゲームタグ</span>
                   <%= link_to clan do %>
                     <span class="profile-intro">

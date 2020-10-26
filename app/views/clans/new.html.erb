@@ -44,7 +44,11 @@
           <%= f.radio_button :average_age, :５０代以上 %>
         </div>
         <div class="actions">
-          <p><%= f.submit "登録", class: "btn btn3 col-sm-12" %></p>
+          <% if  current_user.clans.count >= 3 %>
+            <p class="btn btn_red col-sm-12"">クラン所属限度(3)</p>
+          <% else %>
+            <p><%= f.submit "登録", class: "btn btn3 col-sm-12" %></p>
+          <% end %>
         </div>
       <% end %>
       <p><%= link_to 'マイページへ戻る', current_user, class: "btn btn4 col-sm-12" %></p>

@@ -7,9 +7,9 @@
         </div>
         <p class= "image_center">
           <% if @clan.image? %>
-            <img src=<%= @clan.image %> class = "clan_image">
+            <img src=<%= @clan.image %> class = "clan_image_show">
           <% else %>
-            <%= image_tag 'default_clan.png', class: "clan_image" %>
+            <%= image_tag 'default_clan.png', class: "clan_image_show" %>
           <% end %>
         </p>
       </div>
@@ -33,24 +33,20 @@
           <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="1-tab">
             <%# クラン情報 %>
             <div class="tab-pane-header">
-              <table>
+              <table style="width: 95%;">
                 <tr><th>ステータス</th><td><%= @clan.status %></td></tr>
                 <tr><th>レベル</th><td><%= @clan.level %></td></tr>
                 <tr><th>雰囲気</th><td><%= @clan.atomosphere %></td></tr>
                 <tr><th>平均年齢</th><td><%= @clan.average_age %></td></tr>
               </table>
-              <section class="self-intro">
-                <p style="font-weight: bold;">クラン紹介</p>
-                <div class="box3">
+              <section class="self-intro" style="width: 95%; margin: auto;">
+                <div class="intro">
                   <% if @clan.clan_introduction %>
                     <%=safe_join(@clan.clan_introduction.split("\n"),tag(:br)) %>
                   <% else %>
                     <p>クラン紹介はまだありません。</p>
                   <% end %>
                 </div>
-                <% if user_admin_flg(current_user, @clan) == 1 %>
-                  <%= link_to "クラン編集", edit_clan_path, class:"btn btn2" %>
-                <% end %>
               </section>
             </div>
 
@@ -61,40 +57,88 @@
           <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="2-tab">
             <div class="tab-pane-header">   
               <!-- 所属メンバー一覧 START -->
+              <p class="user-index text-center" style="font-weight: bold;">所属メンバ一リスト(定員:20名)</p>
               <% if @clan.user_belonging?(current_user) %>
-              <p class="user-index">所属メンバ一覧</p>
-              <div class="container">
+                <div class="container">
                   <div class="row">
-                      <% @belongings.each do |belonging| %>
-                          <div class="col-2 col-xs-2 col-md-2 col-lg-4">
-                              <% if belonging.admin_flg == 1 %>
-                                  <div class="admin"><i class="fas fa-crown"></i>クランマスター</div>
-                              <% else %>
-                                  <div class="admin">&nbsp</div>
-                              <% end %>
+                    <% @belongings.each do |belonging| %>
+                      <%= link_to belonging.user do %>
+                        <div class="profile-card">
+                          <div class="profile-card__inner">
+                            <div class="profile-thumb" style="boader: none; border-radius: 100px; border: #010ca3 3px solid;">
                               <% if belonging.user.image? %>
-                                <%= link_to user_path(belonging.user) do %>
-                                  <img src=<%= belonging.user.image %> class = "clan_image">
-                                <% end %>
+                                <img src=<%= belonging.user.image %> class = "clan_image">
                               <% else %>
-                                  <%= link_to user_path(belonging.user) do %>
-                                      <%= image_tag ("default-user-image.png"), class:"user-icon" %>
-                                  <% end %>
+                                <%= image_tag ("default-user-image.png"), class:"clan_image" %>
                               <% end %>
-                              <div class="belong-username"><%= belonging.user.name %></div>
+                            </div>
+                            <div class="profile-content">
+                            <span class="profile-name"><%= belonging.user.name %></span>
+                            <span class="profile-job">
+                              <% if belonging.admin_flg == 1 %>
+                                <div class="admin"><i class="fas fa-crown"></i> クランマスター</div>
+                              <% else %>
+                                <span>&nbsp;</span>
+                              <% end %>
+                            </span>
+                            <span class="profile-intro">
+                              <table>
+                                <tr><th>PSID</th><td><%= belonging.user.psid %></td></tr>
+                                <tr><th>性別</th><td><%= belonging.user.sex %></td></tr>
+                                <tr><th>年齢</th><td><%= belonging.user.age %></td></tr>
+                                <tr><th>地域</th><td><%= belonging.user.address %></td></tr>
+                              </table>
+                            </span>
+                            </div>
                           </div>
+                        </div>
                       <% end %>
+                    <% end %>
                   </div>
                 </div>
               <% end %>
-
               <% @clan.users.each do |user| %>
                 <% user.name %>
               <% end %>
+              
               <% if user_admin_flg(current_user, @clan) == 1 %>
-                <%= link_to "承認待ち一覧", clan_requests_path(@clan), class:"btn btn2" %>
+                <div class="container applicant-wrapper">
+                  <p class="user-index text-center" style="font-weight: bold;">承認待ちユーザー</p>
+                  <div class="row">
+                    <% @clan.requests.each do |req| %>
+                      <%= link_to req.user do %>
+                        <div class="profile-card">
+                          <div class="profile-card__inner">
+                            <div class="profile-thumb" style="boader: none; border-radius: 100px; border: #010ca3 3px solid;">
+                              <% if req.user.image? %>
+                                <img src=<%= req.user.image %> class = "icon_image_mini">
+                              <% else %>
+                                <%= image_tag ("default-user-image.png"), class:"icon_image_mini" %>
+                              <% end %>
+                            </div>
+                            <div class="profile-content">
+                              <span class="profile-name"><%= req.user.name %></span>
+                              <span class="profile-job">&nbsp;</span>
+                              <span class="profile-intro">
+                                <table>
+                                  <tr><th>PSID</th><td><%= req.user.psid %></td></tr>
+                                  <tr><th>性別</th><td><%= req.user.sex %></td></tr>
+                                  <tr><th>年齢</th><td><%= req.user.age %></td></tr>
+                                  <tr><th>地域</th><td><%= req.user.address %></td></tr>
+                                </table>
+                              </span>
+                              <div class="text-center">
+                                <%= link_to "承認", clan_belongings_path(req.clan, user_id: req.user.id, request_id: req.id), method: :post, class:"btn btn_req" %>
+                                <%= link_to "却下", clan_request_path(req.clan, req), method: :delete, class:"btn btn_req2" %>
+                              </div>
+                            </div>  
+                          </div>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
               <% end %>
-
 
             </div>
           </div>
@@ -115,17 +159,28 @@
         </div>
       </div>
 
+
       <!-- ログインユーザが当該コミュニティに所属している場合 -->
-      <% if @clan.user_belonging?(current_user) %>
-          <%= link_to '退会する', clan_belonging_path(@clan, @belonging), method: :delete, data:{ confirm: "クラン「#{@clan.name}」を退会します。よろしいですか？" } ,class:"btn btn_mini_red" %>
-      <!-- 当該コミュニティには所属していないが、ログインはしている場合 -->
-      <% elsif current_user %>
-        <% if @request %>
-          <%= link_to '申請取消', clan_request_path(@clan, @request), method: :delete, data:{ confirm: "クラン「#{@clan.name}」への参加申請を取り消します。よろしいですか？" } ,class: "btn btn_mini_red" %>
-        <% else %>
-          <%= link_to '参加申請', clan_requests_path(@clan), method: :post, class: "btn btn2" %>
+      <div class="text-center">
+        <% if user_admin_flg(current_user, @clan) == 1 %>
+          <%= link_to "クラン編集", edit_clan_path, class:"btn btn2" %>
         <% end %>
-      <% end %>
+        <% if @clan.user_belonging?(current_user) %>
+            <%= link_to '退会する', clan_belonging_path(@clan, @belonging), method: :delete, data:{ confirm: "クラン「#{@clan.name}」を退会します。よろしいですか？" } ,class:"btn btn_mini_red" %>
+        <!-- 当該コミュニティには所属していないが、ログインはしている場合 -->
+        <% elsif current_user %>
+          <% if @request %>
+            <%= link_to '申請取消', clan_request_path(@clan, @request), method: :delete, data:{ confirm: "クラン「#{@clan.name}」への参加申請を取り消します。よろしいですか？" } ,class: "btn btn_mini_red" %>
+          <% elsif  current_user.clans.count >= 3%>
+            <p class="btn btn_mini_red">クラン所属限度(3)</p>
+          <% elsif  @clan.users.count >= 20%>
+            <p class="btn btn_mini_red">定員(20名)</p>
+          <% else %>
+            <%= link_to '参加申請', clan_requests_path(@clan), method: :post, class: "btn btn2" %>
+          <% end %>
+        <% end %>
+      </div>
+      
 
     </div>
   </div>
