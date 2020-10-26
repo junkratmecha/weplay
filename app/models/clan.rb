@@ -6,6 +6,7 @@ class Clan < ApplicationRecord
   has_many :belongings, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :users, through: :belongings
+  has_many :boards
   # ユーザがコミュニティに所属していればtrueを返す
   def user_belonging?(user)
     users.include?(user)

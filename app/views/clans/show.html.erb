@@ -147,12 +147,30 @@
           <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="3-tab">
 
             <div class="tab-pane-header">
-              <h2>Navivation Title (Nav-Tab 3)</h2>
-              <h5>Navigation subtitle</h5>
-              <p class="lead">
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum vero magni suscipit, fuga repellat quaerat eius minima vel, distinctio dignissimos labore esse harum, consequatur rem explicabo molestias aliquid saepe autem?</div>
-              </p>
-              <a href="#tab3" target="_blank">Link directly to this tab</a>
+
+
+            <% @boards.each do |board| %>
+              <%= board.user.name %>
+              <%= board.content %>
+              <%= link_to '削除', clan_board_path(board_id: board.id, clan_id: @clan.id), method: :delete %>
+            <% end %>
+
+            <%= form_for [@clan, @board] do |f| %>
+              <div class="form_area">
+                <div class="form_area__field">
+                  <%= f.text_area :content, placeholder: "投稿内容を入力" %>
+                </div>
+              </div>
+              <div class="form_area">
+                <div class="form_area__action">
+                  <%= f.submit "投稿", class: "form_area__action__btn" %>
+                </div>
+              </div>
+            <% end %>
+
+           
+
+            
             </div>
 
           </div>
