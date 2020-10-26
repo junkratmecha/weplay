@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :belongings, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :clans, through: :belongings
+  has_many :boards
 
   validates :name, presence: true
   before_save :downcase_email

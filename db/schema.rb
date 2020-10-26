@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201021063543) do
+ActiveRecord::Schema.define(version: 20201026102006) do
 
   create_table "belongings", force: :cascade do |t|
     t.integer "clan_id"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 20201021063543) do
     t.integer "admin_flg", default: 0
     t.index ["clan_id"], name: "index_belongings_on_clan_id"
     t.index ["user_id"], name: "index_belongings_on_user_id"
+  end
+
+  create_table "boards", force: :cascade do |t|
+    t.string "content"
+    t.integer "clan_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clan_id"], name: "index_boards_on_clan_id"
+    t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
   create_table "clans", force: :cascade do |t|
