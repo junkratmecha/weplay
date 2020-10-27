@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20201026102006) do
     t.string "name", null: false
     t.string "image"
     t.string "level"
-    t.string "clan_introduction", limit: 400
     t.integer "status"
     t.integer "atomosphere"
     t.integer "average_age"
+    t.string "clan_introduction", limit: 400
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_clan
+  before_action :authenticate_user!
 
   
 
@@ -26,7 +27,7 @@ class BoardsController < ApplicationController
     params.require(:board).permit(:content).merge(user_id: current_user.id)
   end
 
-  def set_clan #③ストロングパラメーターに設定
+  def set_clan 
     @clan = Clan.find(params[:clan_id])
   end
 

@@ -1,4 +1,6 @@
 class ClansController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+
   def index
     @q = Clan.ransack(params[:q])
     @clans = @q.result(distinct: true).page(params[:page]).per(12)
