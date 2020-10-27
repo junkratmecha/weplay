@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :clans do
     resources :requests, only: %i(create destroy)
-    resources :belongings, only: %i(icreate destroy)
+    resources :belongings, only: %i(create destroy)
     resources :boards, only: %i[index create update destroy]
   end
 end
