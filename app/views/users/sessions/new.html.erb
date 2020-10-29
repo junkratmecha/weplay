@@ -2,7 +2,11 @@
 <div class="container">
   <div class="row">
     <div class="offset-sm-2 col-sm-8 offset-sm-2">    
-    <p class="example1 text-center">ログイン</p>
+      <div class="guide-content">
+        <div class="page_title text-center">
+            <h5 style="font-size: x-large; font-weight: bold;">ログイン</h5>
+        </div>
+      </div>
       <h6 style="color: grey;">※ゲストログイン(お試し使用)でのアクションは残りません。</h6>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">

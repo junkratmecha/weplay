@@ -2,6 +2,7 @@
 table{
   width: 100%;
   border-collapse: collapse;
+  margin: auto;
 }
 
 table tr{
@@ -41,4 +42,16 @@ table td{
   text-align: center;
   background-color: rgb(220, 220, 220);
   padding: 10px 0;
+}
+
+.intro {
+  padding: 0.5em 1em;
+  background: #FFF;
+  border: solid 3px #010ca3;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  margin: 20px 0 0 0;
+}
+.intro p {
+  margin: 0; 
+  padding: 0;
 }

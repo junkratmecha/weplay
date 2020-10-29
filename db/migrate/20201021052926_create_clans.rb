@@ -4,10 +4,10 @@ class CreateClans < ActiveRecord::Migration[5.1]
       t.string :name, null: false, unique: true
       t.string :image
       t.string :level
-      t.string :clan_introduction, limit: 400
       t.integer :status
       t.integer :atomosphere
       t.integer :average_age
+      t.string :clan_introduction
 
       t.timestamps
 

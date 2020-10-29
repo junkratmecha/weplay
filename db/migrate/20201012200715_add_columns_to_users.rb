@@ -6,6 +6,6 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :address, :string
     add_column :users, :age, :integer
     add_column :users, :sex, :integer
-    add_column :users, :self_introduction, :string, limit: 400
+    add_column :users, :self_introduction, :string
   end
 end
