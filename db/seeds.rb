@@ -1,4 +1,4 @@
-User.create!(name:  "Guest User",
+User.create!(name:  "ゲストユーザー",
             psid: "guest",
             sex: 0,
             age: 1,
@@ -7,7 +7,7 @@ User.create!(name:  "Guest User",
             password: "guestguest",
             password_confirmation: "guestguest")
 
-User.create!(name:  "Example User",
+User.create!(name:  "テストユーザー",
             psid: "example",
             sex: 0,
             age: 1,
@@ -16,7 +16,7 @@ User.create!(name:  "Example User",
             password: "foobar",
             password_confirmation: "foobar")
 
-User.create!(name:  "Admin User",
+User.create!(name:  "管理人",
             psid: "admin",
             sex: 0,
             age: 2,
@@ -54,6 +54,15 @@ User.create!(name:  "オオカミ",
             password: "cccccc",
             password_confirmation: "cccccc")
 
+User.create!(name:  "ミーファ",
+            psid: "mifa",
+            sex: 1,
+            age: 3,
+            address: "浅草",
+            email: "dddd@gmail.com",
+            password: "dddddd",
+            password_confirmation: "dddddd")
+
 Clan.create!(name: "Watchdogs",
             image: File.open('./app/assets/images/team_blue1.png'),
             level: "マスター目指す",
@@ -85,5 +94,17 @@ Belonging.create!(user_id: 5,
 Belonging.create!(user_id: 6,
             clan_id: 3, 
             admin_flg: 1)
+
+Belonging.create!(user_id: 7,
+            clan_id: 1,  
+            admin_flg: 0)
+
+Belonging.create!(user_id: 7,
+            clan_id: 2, 
+            admin_flg: 0)
+
+Belonging.create!(user_id: 7,
+            clan_id: 3, 
+            admin_flg: 0)
 
  

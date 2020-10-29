@@ -16,9 +16,9 @@
 
       <ul class="clans">
         <% @clans.each do |clan| %>
-          <%= link_to clan do %>
           <li>
             <div class="profile-card">
+              <%= link_to clan do %>
               <div class="profile-card__inner">
                 <div class="profile-thumb">
                   <% if clan.image? %>
@@ -31,21 +31,19 @@
                   <span class="profile-name"><%= clan.name %></span>
                   <span class="profile-job">(<%= clan.users.count %>)</span>
                   <span class="profile-job">ゲームタグ</span>
-                  <%= link_to clan do %>
-                    <span class="profile-intro">
-                      <table>
-                        <tr><th>ステータス</th><td><%= clan.status %></td></tr>
-                        <tr><th>レベル</th><td><%= clan.level %></td></tr>
-                        <tr><th>雰囲気</th><td><%= clan.atomosphere %></td></tr>
-                        <tr><th>平均年齢</th><td><%= clan.average_age %></td></tr>
-                      </table>
-                    </span>
-                  <% end %>
+                  <span class="profile-intro">
+                    <table>
+                      <tr><th>ステータス</th><td><%= clan.status %></td></tr>
+                      <tr><th>レベル</th><td><%= clan.level %></td></tr>
+                      <tr><th>雰囲気</th><td><%= clan.atomosphere %></td></tr>
+                      <tr><th>平均年齢</th><td><%= clan.average_age %></td></tr>
+                    </table>
+                  </span>
                 </div>
               </div>
+            <% end %>
             </div>
           </li>
-          <% end %>
         <% end %>
       </ul>
       <%= paginate @clans %>

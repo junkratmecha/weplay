@@ -11,12 +11,32 @@ class BelongingsController < ApplicationController
       end
   end
 
+  def edit
+    @belonging = Belonging.find(params[:id])
+  end
+
+  def update
+    @belonging = Clan.find(params[:id])
+    @belonging.update(belonging_params)
+  end
+
+
+
   def destroy
       @belonging = Belonging.find(params[:id])
-      @belonging.destroy!
       @clan = Clan.find(params[:clan_id])
-      redirect_to clan_url(@clan), notice: "クラン「#{@clan.name}」を退会しました。"    
+      @next_user = @clan.users.second
+      @next_belonging = Belonging.find_by(clan_id: @clan.id, user_id: @next_user.id)
+      if @belonging.admin_flg == 1
+        @belonging.destroy!
+        @next_belonging.update!(clan_id: @clan.id, user_id: @next_user.id, admin_flg: '1')
+        redirect_to clan_url(@clan), notice: "クラン「#{@clan.name}」を退会しました。"   
+      else 
+        @belonging.destroy!
+        redirect_to clan_url(@clan), notice: "クラン「#{@clan.name}」を退会しました。"   
+      end
   end
+
 
   private
 

@@ -20,19 +20,20 @@
       <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="home" aria-expanded="true">クラン情報</a>
+            <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="home" aria-expanded="true">クランTOP</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="profile">メンバー(<%= @clan.users.count %>)</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#tab3" role="tab" aria-controls="profile">クランボード</a>
+            <a class="nav-link" data-toggle="tab" href="#tab3" role="tab" aria-controls="profile">掲示板</a>
           </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="1-tab">
+          <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="1-tab"> 
             <%# クラン情報 %>
             <div class="tab-pane-header">
+              <p class="user-index text-center" style="font-weight: bold; margin-bottom: 10px;">基本情報</p>
               <table style="width: 95%;">
                 <tr><th>ステータス</th><td><%= @clan.status %></td></tr>
                 <tr><th>レベル</th><td><%= @clan.level %></td></tr>
@@ -48,6 +49,35 @@
                   <% end %>
                 </div>
               </section>
+            
+              <!-- コミュニティ参加・退会ボタン -->
+              <% if user_signed_in? %>
+                <div class="text-center">
+                  <% if user_admin_flg(current_user, @clan) == 1 %>
+                    <%= link_to "クラン編集", edit_clan_path, class:"btn btn2" %>
+                  <% end %>
+                  <% if @clan.user_belonging?(current_user) %>
+                      <%= link_to '退会する', clan_belonging_path(@clan, @belonging), method: :delete, data:{ confirm: "クラン「#{@clan.name}」を退会します。よろしいですか？" } ,class:"btn btn_mini_red" %>
+                  <!-- 当該コミュニティには所属していないが、ログインはしている場合 -->
+                  <% elsif current_user %>
+                    <% if @request %>
+                      <%= link_to '申請取消', clan_request_path(@clan, @request), method: :delete, data:{ confirm: "クラン「#{@clan.name}」への参加申請を取り消します。よろしいですか？" } ,class: "btn btn_mini_red" %>
+                    <% elsif  current_user.clans.count >= 3%>
+                      <p class="btn btn_mini_red">クラン所属限度(3)</p>
+                    <% elsif  @clan.users.count >= 20%>
+                      <p class="btn btn_mini_red">定員(20名)</p>
+                    <% else %>
+                      <%= link_to '参加申請', clan_requests_path(@clan), method: :post, class: "btn btn2" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% else %>
+                <p class="user-index text-center" style="font-weight: bold;">クランに参加するにはユーザー登録・ログインが必要です。</p>
+                <div class="text-center">
+                  <%= link_to "ユーザー登録", new_user_registration_path, class:"btn btn2" %>
+                  <%= link_to "ログイン", new_user_session_path, class:"btn btn2" %>
+                </div>
+              <% end %>
             </div>
 
 
@@ -143,69 +173,69 @@
 
             <div class="tab-pane-header">
 
-            <% if @clan.user_belonging?(current_user) %>
-              <%# ボード一覧 %>
-              <% @boards.each do |board| %>
-                <%= board.user.name %>
-                <%= board.content %>
-                <%= link_to '削除', clan_board_path(board_id: board.id, clan_id: @clan.id), method: :delete %>
-              <% end %>
-              <%# ボードフォーム %>
-              <%= form_for [@clan, @board] do |f| %>
-                <div class="form_area">
-                  <div class="form_area__field">
-                    <%= f.text_area :content, placeholder: "投稿内容を入力" %>
+              <% if @clan.user_belonging?(current_user) %>
+                <%# ボード一覧 %>
+                <% @boards.each do |board| %>
+                  <% if board.user == current_user %>
+                    <div class="balloon_r">
+                      <div class="faceicon">
+                        <% if board.user.image? %>
+                          <img src=<%= board.user.image %>>
+                        <% else %>
+                          <%= image_tag ("default-user-image.png") %>
+                        <% end %>
+                      </div>
+                      <div class="co-wrap">
+                        <p class="says"><%= safe_join(board.content.split("\n"),tag(:br)) %></p>
+                        <div style = "text-align: right;">
+                          <%= board.created_at.strftime("%m月%d日 %H:%M") %>
+                          <%= link_to '削除', clan_board_path(board_id: board.id, clan_id: @clan.id), method: :delete %>
+                        </div>
+                      </div>
+                    </div>
+                  <% else %>
+                    <div class="balloon_l">
+                      <div class="co-wrap">
+                        <div class="faceicon">
+                          <% if board.user.image? %>
+                            <img src=<%= board.user.image %>>
+                          <% else %>
+                            <%= image_tag ("default-user-image.png") %>
+                          <% end %>
+                        </div>
+                        <p style="margin: 0 10px 0 10px; font-size: small;"><%= board.user.name %></p>
+                      </div>
+                      <div class="co-wrap">
+                        <p class="says"><%= board.content %></p>
+                        <%= board.created_at.strftime("%m月%d日 %H:%M") %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+                <%# ボードフォーム %>
+                <%= form_for [@clan, @board] do |f| %>
+                  <div class="form-group text-center">
+                    <%= f.text_area :content, :rows => "4", placeholder: "投稿内容を入力" %>
                   </div>
-                </div>
-                <div class="form_area">
-                  <div class="form_area__action">
-                    <%= f.submit "投稿", class: "form_area__action__btn" %>
+                  <div class="form_area">
+                    <div class="form_area__action" style="margin: 0px; padding: 0px; text-align: center;">
+                      <%= f.submit "投稿", class: "btn btn2" %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
+                  
+             
+              
+
+              <% else %>
+                <p class="user-index text-center" style="font-weight: bold;">クラン所属メンバーのみ閲覧可</p>
               <% end %>
-            <% else %>
-              <p class="user-index text-center" style="font-weight: bold;">クラン所属メンバーのみ閲覧可</p>
-            <% end %>
 
-           
-
-            
             </div>
 
           </div>
         </div>
-      </div>
-
-
-      <!-- コミュニティ参加・退会ボタン -->
-      <% if user_signed_in? %>
-        <div class="text-center">
-          <% if user_admin_flg(current_user, @clan) == 1 %>
-            <%= link_to "クラン編集", edit_clan_path, class:"btn btn2" %>
-          <% end %>
-          <% if @clan.user_belonging?(current_user) %>
-              <%= link_to '退会する', clan_belonging_path(@clan, @belonging), method: :delete, data:{ confirm: "クラン「#{@clan.name}」を退会します。よろしいですか？" } ,class:"btn btn_mini_red" %>
-          <!-- 当該コミュニティには所属していないが、ログインはしている場合 -->
-          <% elsif current_user %>
-            <% if @request %>
-              <%= link_to '申請取消', clan_request_path(@clan, @request), method: :delete, data:{ confirm: "クラン「#{@clan.name}」への参加申請を取り消します。よろしいですか？" } ,class: "btn btn_mini_red" %>
-            <% elsif  current_user.clans.count >= 3%>
-              <p class="btn btn_mini_red">クラン所属限度(3)</p>
-            <% elsif  @clan.users.count >= 20%>
-              <p class="btn btn_mini_red">定員(20名)</p>
-            <% else %>
-              <%= link_to '参加申請', clan_requests_path(@clan), method: :post, class: "btn btn2" %>
-            <% end %>
-          <% end %>
-        </div>
-      <% else %>
-        <p class="user-index text-center" style="font-weight: bold;">クランに参加するにはユーザー登録・ログインが必要です。</p>
-        <div class="text-center">
-          <%= link_to "ユーザー登録", new_user_registration_path, class:"btn btn2" %>
-          <%= link_to "ログイン", new_user_session_path, class:"btn btn2" %>
-        </div>
-      <% end %>
-
+      </div>  
     </div>
   </div>
 </div>
