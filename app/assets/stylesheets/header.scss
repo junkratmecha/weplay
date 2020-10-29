@@ -51,9 +51,16 @@ dl.searchbox dd{
   line-height: 28px;
   border: none;
 }
+// ヘッダードロップダウン
+.dropdown-menu {
+  margin-top: 30px;
+  border:2px #010ca3 solid;
+}
 
 .menu_item {
   text-align: center;
+  font-size: small;
+  margin: auto;
   
 }
 

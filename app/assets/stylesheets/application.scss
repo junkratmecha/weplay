@@ -7,6 +7,7 @@
 @import "image";
 @import "user";
 @import "clan";
+@import "board";
 
 // body
 .body{
@@ -15,7 +16,6 @@
   font-size: 100%;
 }
 
-// 何に使ってる?
 .wrapper{
   min-height: 100vh;
   position: relative;
@@ -86,7 +86,7 @@ a{
   width: 140px;
   height: 30px;
   font-size: small;
-  margin: 0px 0px 20px 0px;
+  margin: 20px auto;
 }
 .btn2:hover {
   background-color: #3a51d3;
@@ -99,7 +99,7 @@ a{
   width: 140px;
   height: 30px;
   font-size: small;
-  margin: 0px 0px 20px 0px;
+  margin: 20px auto;
 }
 .btn_mini_red:hover {
   background-color: rgb(185, 80, 80);
@@ -143,6 +143,32 @@ a{
   color: #fff;
 }
 
+.btn_req {
+  color: #fff;
+  height: 30px;
+  font-size: small;
+  background-color: #010ca3;
+  margin: 5px 0;
+}
+
+.btn_req:hover {
+  background-color: #3a51d3;
+  color: #fff;
+}
+
+.btn_req2 {
+  color: #fff;
+  height: 30px;
+  font-size: small;
+  background-color: brown;
+  margin: 5px 0;
+}
+
+.btn_req2:hover {
+  background-color: rgb(185, 80, 80);
+  color: #fff;
+}
+
 
 .top-message{
   margin-top: 50px;
@@ -171,16 +197,7 @@ a{
   background-color: #fff;
 }
 
-.box3 {
-  padding: 0.5em 1em;
-  background: #FFF;
-  border: solid 3px #010ca3;/*線*/
-  border-radius: 10px;/*角の丸み*/
-}
-.box3 p {
-  margin: 0; 
-  padding: 0;
-}
+
 
 
 
@@ -212,14 +229,10 @@ p.padding-top{
 .row-wrap {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
-#box2{
-  background-color: white;
-}
-#box1{
-  background-color: white;
-}
+
 
 // カミナリ
 .pagination{

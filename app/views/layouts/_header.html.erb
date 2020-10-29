@@ -16,7 +16,7 @@
           <li class="nav-item row-wrap">
               <div class="dropdown"> 
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %><span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-right">
                   <li class = "menu_item"><p><%= link_to 'マイページ', current_user %></p></li>
                   <li class = "menu_item"><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
                   <li class="divider"></li>

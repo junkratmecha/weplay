@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get '/privacy', to: 'pages#privacy'
 
   resources :clans do
-    resources :requests, only: %i(index create destroy)
-    resources :belongings, only: %i(index create destroy)
+    resources :requests, only: %i(create destroy)
+    resources :belongings, only: %i(create destroy)
+    resources :boards, only: %i[index create update destroy]
   end
 end

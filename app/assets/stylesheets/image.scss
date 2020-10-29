@@ -3,7 +3,8 @@
   height: 40px;
   //サイズ指定
   border-radius: 20px;
-  border: #eee 2px solid;
+  margin: 0 5px 0 0;
+  border: #010ca3 2px solid;
   //画像を丸くする
   object-fit: cover;
   //タテヨコ比を変えないままトリミング
@@ -15,7 +16,7 @@
   margin: 0 auto;
   //サイズ指定
   border-radius: 100px;
-  border: #eee 5px solid;
+  border: #010ca3 5px solid;
   //画像を丸くする
   object-fit: cover;
   //タテヨコ比を変えないままトリミング
@@ -24,9 +25,17 @@
 .clan_image {
   width: 200px;
   height: 200px;
-  border: #eee 5px solid;
   //サイズ指定
   object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
+.clan_image_show {
+  width: 200px;
+  height: 200px;
+  //サイズ指定
+  object-fit: cover;
+  border: #eee 3px solid;
   //タテヨコ比を変えないままトリミング
 }
 
