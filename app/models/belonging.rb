@@ -10,13 +10,13 @@ class Belonging < ApplicationRecord
 
 
   def bel_user_clan_limit
-    if user.clans.count > 2
+    if user.clans.count > 3
      errors.add(:request, "クラン所属は三つまでです。")
     end
   end
 
   def bel_clan_member_limit
-    if clan.users.count > 19
+    if clan.users.count > 20
      errors.add(:request, "クランは定員(20名)です。")
     end
   end

@@ -4,13 +4,13 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
   has_many :belongings, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :clans, through: :belongings
   has_many :boards
-
-  validates :name, presence: true
+  validates :name, presence: true, length: {maximum: 10}
+  validates :address, length: {maximum: 10}
+  validates :self_introduction, length: {maximum: 10}
   before_save :downcase_email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, { presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } }

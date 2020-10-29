@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20201026102006) do
     t.integer "status"
     t.integer "atomosphere"
     t.integer "average_age"
-    t.string "clan_introduction", limit: 400
+    t.string "clan_introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20201026102006) do
     t.string "address"
     t.integer "age"
     t.integer "sex"
-    t.string "self_introduction", limit: 400
+    t.string "self_introduction"
     t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
