@@ -4,6 +4,7 @@
       <div class="guide-content">
         <div class="page_title text-center">
           <h5 style="font-size: x-large; font-weight: bold;">(ゲーム名)クラン：【<%= @clan.name %>】</h5>
+          <%= raw(@clan.tag_list.map { |t| link_to t, clan_path(t), class: "label label-default" }.join(' ')) %>
         </div>
         <p class= "image_center">
           <% if @clan.image? %>
@@ -49,6 +50,7 @@
                   <% end %>
                 </div>
               </section>
+              
             
               <!-- コミュニティ参加・退会ボタン -->
               <% if user_signed_in? %>
@@ -214,19 +216,13 @@
                 <% end %>
                 <%# ボードフォーム %>
                 <%= form_for [@clan, @board] do |f| %>
-                  <div class="form-group text-center">
-                    <%= f.text_area :content, :rows => "4", placeholder: "投稿内容を入力" %>
+                  <div class="form-group offset-sm-3 col-sm-6 offset-sm-3">
+                    <%= f.text_area :content, :rows => "3", placeholder: "投稿内容を入力", autofocus: true, class: "form-control" %>
                   </div>
-                  <div class="form_area">
-                    <div class="form_area__action" style="margin: 0px; padding: 0px; text-align: center;">
-                      <%= f.submit "投稿", class: "btn btn2" %>
-                    </div>
+                  <div class="form_area__action" style="margin: 0px; padding: 0px; text-align: center;">
+                    <%= f.submit "投稿", class: "btn btn2" %>
                   </div>
                 <% end %>
-                  
-             
-              
-
               <% else %>
                 <p class="user-index text-center" style="font-weight: bold;">クラン所属メンバーのみ閲覧可</p>
               <% end %>

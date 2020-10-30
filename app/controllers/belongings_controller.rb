@@ -25,7 +25,7 @@ class BelongingsController < ApplicationController
   def destroy
       @belonging = Belonging.find(params[:id])
       @clan = Clan.find(params[:clan_id])
-      @next_user = @clan.users.second
+      @next_user = @clan.users.first
       @next_belonging = Belonging.find_by(clan_id: @clan.id, user_id: @next_user.id)
       if @belonging.admin_flg == 1
         @belonging.destroy!

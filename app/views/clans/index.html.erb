@@ -12,7 +12,9 @@
           <dd><button type="submit" class="search-btn"><i class="fas fa-search" style="color: grey;"></i></button></dd>
         <% end %>
       </dl>
-
+      <% @tags.each do |tag| %>
+          <%= link_to "#{tag.name}(#{tag.taggings_count})", clans_path(tag_name: tag.name), class: "badge badge-primary"%>
+      <% end %>
 
       <ul class="clans">
         <% @clans.each do |clan| %>

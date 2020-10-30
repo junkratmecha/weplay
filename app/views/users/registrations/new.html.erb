@@ -1,7 +1,7 @@
 <%= devise_error_messages %>
 <div class="container">
   <div class="row">
-    <div class="offset-sm-2 col-sm-8 offset-sm-2">z
+    <div class="offset-sm-2 col-sm-8 offset-sm-2">
       <div class="guide-content">
         <div class="page_title text-center">
             <h5 style="font-size: x-large; font-weight: bold;">ユーザー登録</h5>
@@ -15,7 +15,7 @@
             <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :【プレイステーションID】 %>
+            <%= f.label :【プレイステーション %>ID】
             <%= f.text_field :psid, autofocus: true, autocomplete: "psid", class: "form-control" %>
           </div>
           <div class="form-group">
@@ -31,16 +31,7 @@
           </div>
           <div class="age-field">
             <%= f.label :【年齢】 %><br />
-            <%= f.label :１０代  %>
-            <%= f.radio_button :age, :１０代 %>
-            <%= f.label :２０代  %>
-            <%= f.radio_button :age, :２０代 %>
-            <%= f.label :３０代  %>
-            <%= f.radio_button :age, :３０代 %>
-            <%= f.label :４０代  %>
-            <%= f.radio_button :age, :４０代 %>
-            <%= f.label :５０代以上  %>
-            <%= f.radio_button :age, :５０代以上 %>
+            <%= f.select :age, [["１０代", "１０代"], ["２０代", "２０代"], ["３０代", "３０代"], ["４０代", "４０代"], ["５０代以上", "５０代以上"]], include_blank: "選択してください" %>
           </div>
           <div class="form-group">
             <%= f.label :【地域】 %>

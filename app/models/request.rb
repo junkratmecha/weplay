@@ -6,7 +6,6 @@ class Request < ApplicationRecord
   validates  :user_id, uniqueness: { scope: :clan_id }
   validates  :clan_id, uniqueness: { scope: :user_id }
   validate :req_user_clan_limit
-  validate :req_clan_member_limit
 
   def req_user_clan_limit
     if user.clans.count > 2
