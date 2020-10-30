@@ -3,7 +3,12 @@ class ClansController < ApplicationController
 
   def index
     @q = Clan.ransack(params[:q])
-    @clans = @q.result(distinct: true).page(params[:page]).per(12)
+    @tags = ActsAsTaggableOn::Tag.all
+    if params[:tag_name]
+      @clans = @q.result(distinct: true).tagged_with("#{params[:tag_name]}").page(params[:page]).per(12)
+    else
+      @clans = @q.result(distinct: true).page(params[:page]).per(12)
+    end
   end
 
   def show
@@ -21,10 +26,12 @@ class ClansController < ApplicationController
   def new
     @clan = Clan.new
     @clan.users << current_user
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def create
     @clan = Clan.new(clan_params)
+    @tags = ActsAsTaggableOn::Tag.all
     if @clan.save
       Belonging.create!(clan_id: @clan.id, user_id: current_user.id, admin_flg: '1')
       redirect_to root_path, notice: 'クランを作成しました'
@@ -35,10 +42,12 @@ class ClansController < ApplicationController
 
   def edit
     @clan = Clan.find(params[:id])
+    @tags = ActsAsTaggableOn::Tag.all
   end
 
   def update
     @clan = Clan.find(params[:id])
+    @tags = ActsAsTaggableOn::Tag.all
     if @clan.update(clan_params)
       redirect_to clan_path(@clan), notice: 'クランプロフィールを編集しました'
     else
@@ -56,7 +65,7 @@ class ClansController < ApplicationController
 
   def clan_params
     params.require(:clan).permit(
-    :name, :image, :level, :status, :atomosphere, :average_age, :clan_introduction, user_ids: []
+    :name, :image, :level, :status, :atomosphere, :average_age, :clan_introduction, :tag_list, user_ids: []
     )
   end
 end

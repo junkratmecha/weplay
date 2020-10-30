@@ -1,4 +1,5 @@
 class Clan < ApplicationRecord
+  acts_as_taggable
   enum status: { メンバー募集中: 0, 非募集: 1, 活動休止中: 2 }
   enum atomosphere: { エンジョイ: 0, エンジョイandガチ: 1, ガチ: 2 }
   enum average_age: { １０代: 0, ２０代: 1, ３０代: 2, ４０代: 3, ５０代以上: 4 }
