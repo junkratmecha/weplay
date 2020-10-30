@@ -42,13 +42,13 @@
     margin-right: auto;
     margin-top: 20px;
     background: #fff;
-    object-fit: cover;
 }
 
 .profile-thumb img{
   display: block;
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .profile-content{

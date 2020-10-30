@@ -14,7 +14,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'bootstrap'
-gem 'bootstrap-sass', '3.3.6'
+gem "bootstrap-sass", ">= 3.4.1"
 gem 'font-awesome-sass'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
@@ -23,6 +23,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'ransack'
 gem 'kaminari'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
