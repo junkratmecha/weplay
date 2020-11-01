@@ -9,11 +9,11 @@
         <p class="example1" style="margin: 50px 0px;">一緒に遊べばゲームはもっと楽しくなる!!!</p>
         <div class="btn-toolbar">
           <div class="btn-group">
-          <p><%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg btn1"  %></p>
+          <p style="margin-left: 70px;"><%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg btn1"  %></p>
           <p><%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn1"%></p>
           </div>
         </div>
-        <p style="font-size: small;"><%= link_to "使ってみる!?(ゲストでログイン)", new_user_session_path %></p>
+        <p style="font-size: small; margin-left: 70px;"><%= link_to "使ってみる!?(ゲストでログイン)", new_user_session_path %></p>
       </div>
     </div>
   </div>
@@ -23,17 +23,13 @@
   <p style= "margin: 150px 0px 50px 0px;", class="example1 text-center">自分にピッタリの仲間を見つけてパーティープレイ</p>
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <h4><i class="fas fa-check" style="color: #010ca3;"></i>クランを探す?それとも作る?</h4>
-        <%= image_tag 'team_blue2.png', class: "top_howto card" %>
+      <div class="col-lg-6">
+        <h2 style="font-weight: bold;"><i class="fas fa-check" style="color: #010ca3;"></i>クランを探す?それとも作る?</h4>
+        <%= image_tag 'clan.png', class: "top_howto" %>
       </div>
-      <div class="col-lg-4">
-        <h4><i class="fas fa-check" style="color: #010ca3;"></i>掲示板でメンバーとコミュニケーション！</h4>
-        <%= image_tag 'team_blue2.png', class: "top_howto card" %>
-      </div>
-      <div class="col-lg-4">
-        <h4><i class="fas fa-check" style="color: #010ca3;"></i>イベントの開催・参加！</h4>
-        <%= image_tag 'team_blue2.png', class: "top_howto card" %>
+      <div class="col-lg-6">
+        <h2 style="font-weight: bold;"><i class="fas fa-check" style="color: #010ca3;"></i>掲示板でコミュニケーション！</h4>
+        <%= image_tag 'chat.png', class: "top_howto" %>
       </div>
     </div>
     <p class="text-center"><%= link_to "クランを探す", clans_path, class: "btn btn1 btn-lg" %></p>

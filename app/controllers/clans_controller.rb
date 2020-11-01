@@ -1,11 +1,12 @@
 class ClansController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @q = Clan.ransack(params[:q])
     @tags = ActsAsTaggableOn::Tag.all
     if params[:tag_name]
-      @clans = @q.result(distinct: true).tagged_with("#{params[:tag_name]}").page(params[:page]).per(12)
+      @clans = @q.result(distinct: true).tagged_with("#{params[:tag_name]}").
+        page(params[:page]).per(12)
     else
       @clans = @q.result(distinct: true).page(params[:page]).per(12)
     end
@@ -65,7 +66,8 @@ class ClansController < ApplicationController
 
   def clan_params
     params.require(:clan).permit(
-    :name, :image, :level, :status, :atomosphere, :average_age, :clan_introduction, :tag_list, user_ids: []
+      :name, :image, :level, :status, :atomosphere,
+      :average_age, :clan_introduction, :tag_list, user_ids: []
     )
   end
 end

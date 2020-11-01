@@ -1,6 +1,14 @@
 ---
 ja:
   activerecord:
+    models:
+        clan: クラン
+    attributes:
+        clan:
+          level: レベル
+          name: クラン名
+          tag_list: ゲーム
+          clan_introduction: クラン紹介
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

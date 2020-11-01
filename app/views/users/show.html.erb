@@ -56,10 +56,9 @@
                     <%= image_tag 'default_clan.png' %>
                   <% end %>
                 </div>
-                <div class="profile-content">
-                  <span class="profile-name"><%= clan.name %></span>
-                  <span class="profile-job">(<%= clan.users.count %>)</span>
-                  <span class="profile-job">ゲームタグ</span>
+                <div class="profile-content text-center">
+                  <span class="profile-name"><%= clan.name %>(<%= clan.users.count %>)</span>
+                  <%= raw(clan.tag_list.map { |t| link_to t, clans_path(tag_name: t), class: "profile-job" }.join(' ')) %>
                   <%= link_to clan do %>
                     <span class="profile-intro">
                       <table>

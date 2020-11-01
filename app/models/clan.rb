@@ -8,9 +8,10 @@ class Clan < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :users, through: :belongings
   has_many :boards
-  validates :name, presence: true, length: {maximum: 10}
-  validates :level, length: {maximum: 10}
-  validates :clan_introduction, length: {maximum: 10}
+  validates :name, presence: true, length: { maximum: 10 }
+  validates :tag_list, presence: true
+  validates :level, length: { maximum: 10 }
+  validates :clan_introduction, length: { maximum: 400 }
   # ユーザがコミュニティに所属していればtrueを返す
   def user_belonging?(user)
     users.include?(user)

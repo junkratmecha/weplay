@@ -9,15 +9,15 @@
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="field text-center">
+        <div class="post-image-prev text-center">
           <% if @user.image? %>
-            <img src=<%= @user.image %> class = "icon_image">
+            <%= image_tag @user.image, alt: "post-image", id: "img_prev", class: "icon_image" %>
           <% else %>
-            <%= image_tag 'default-user-image.png', class: "icon_image" %>
+            <%= image_tag "default-user-image.png", alt: "post-image", id: :img_prev, class: "icon_image" %>
           <% end %>
         </div>
-        <div class="field">
-          <%= f.file_field :image %>
+        <div class="form-group">
+          <%= f.file_field :image, accept: 'image/jpeg, image/gif, image/png', id: "image-select-btn" %>
         </div>
         <div class="form-group">
           <%= f.label :【名前】 %>

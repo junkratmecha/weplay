@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
 
   def create
     @request = current_user.requests.create(clan_id: request_params[:clan_id])
