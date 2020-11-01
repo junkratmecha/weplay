@@ -2,8 +2,6 @@ class BoardsController < ApplicationController
   before_action :set_clan
   before_action :authenticate_user!
 
-  
-
   def create
     @board = @clan.boards.new(board_params)
     if @board.save
@@ -27,8 +25,7 @@ class BoardsController < ApplicationController
     params.require(:board).permit(:content).merge(user_id: current_user.id)
   end
 
-  def set_clan 
+  def set_clan
     @clan = Clan.find(params[:clan_id])
   end
-
 end

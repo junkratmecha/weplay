@@ -31,9 +31,4 @@ module ApplicationHelper
     flg = Belonging.find_by(user_id: user.id, clan_id: clan.id) if user
     flg.admin_flg if flg
   end
-
-  # 各グループの所属人数を算出
-  def clan_member_calc(clan)
-    num = Belonging.where(clan_id: clan.id).count
-  end
 end

@@ -1,3 +1,4 @@
+<%= render partial:'layouts/error', locals:{object: @clan} %>
 <div class="container">
   <div class="row">
     <div class="offset-sm-2 col-sm-8 offset-sm-2">
@@ -28,19 +29,16 @@
             <%= f.label :【平均年齢】 %><br />
             <%= f.select :average_age, [["１０代", "１０代"], ["２０代", "２０代"], ["３０代", "３０代"], ["４０代", "４０代"], ["５０代以上", "５０代以上"]], include_blank: "選択してください" %>
         </div>
-        <%= f.label :【ゲーム】 %><br />
-        <div class="radio-btn">
-        <% @tags.each do |tag| %>
-          <%= f.radio_button :tag_list, "#{tag.name}" %>
-          <%= f.label " #{tag.name}(#{tag.taggings_count})" %>
-        <% end %>
+        <div class="tag_list-field">
+          <span class="badge badge-danger">必須</span><%= f.label :【ゲーム】 %><br />
+          <%= f.collection_select:tag_list, @tags.all, :name, :name, include_blank: "選択してください" %>
         </div>
 
         <div class="actions">
           <% if  current_user.clans.count >= 3 %>
             <p class="btn btn_red col-sm-12"">クラン所属限度(3)</p>
           <% else %>
-            <p><%= f.submit "登録", class: "btn btn3 col-sm-12" %></p>
+            <p><%= f.submit "クラン作成", class: "btn btn3 col-sm-12" %></p>
           <% end %>
         </div>
       <% end %>

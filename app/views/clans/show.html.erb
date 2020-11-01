@@ -3,8 +3,8 @@
     <div class="offset-sm-0 col-sm-12 offset-sm-0">
       <div class="guide-content">
         <div class="page_title text-center">
-          <h5 style="font-size: x-large; font-weight: bold;">(ゲーム名)クラン：【<%= @clan.name %>】</h5>
-          <%= raw(@clan.tag_list.map { |t| link_to t, clan_path(t), class: "label label-default" }.join(' ')) %>
+          <h5 style="font-size: x-large; font-weight: bold;">クラン: <%= @clan.name %></h5>
+          <%= raw(@clan.tag_list.map { |t| link_to t, clans_path(tag_name: t), class: "profile-job" }.join(' ')) %>
         </div>
         <p class= "image_center">
           <% if @clan.image? %>
