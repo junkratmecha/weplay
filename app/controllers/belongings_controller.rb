@@ -45,6 +45,6 @@ class BelongingsController < ApplicationController
   private
 
   def belonging_params
-    params.permit(:clan_id, :user_id, :request_id)
+    params.permit(:clan_id, :user_id, :request_id, :admin_flg:)
   end
 end

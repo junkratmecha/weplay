@@ -20,6 +20,6 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.permit(:clan_id)
+    params.permit(:clan_id, :user_id)
   end
 end
