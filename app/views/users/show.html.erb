@@ -18,7 +18,7 @@
         </p>
         <p class="example2 text-center"><%= @user.name %></p><br/>
         <% if @user.id == current_user.id %>
-          <div class="text-center"><%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn2" %></div>
+          <div class="text-center"><%= link_to "プロフィール編集", edit_user_registration_path, data: {"turbolinks" => false}, class: "btn btn2" %></div>
         <% end %>
         <div class="co-wrap">
           <table>

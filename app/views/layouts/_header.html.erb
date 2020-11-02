@@ -18,7 +18,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %><span class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-menu-right" style="color: #010ca3; text-align: left;">
                   <li class = "menu_item"><i class="fas fa-user-circle"></i><%= link_to ' マイページ', current_user %></li>
-                  <li class = "menu_item"><i class="fas fa-cog"></i><%= link_to ' 設定', edit_user_registration_path %></li>
+                  <li class = "menu_item"><i class="fas fa-cog"></i><%= link_to ' 設定', edit_user_registration_path , data: {"turbolinks" => false}%></li>
                   <li class = "menu_item"><i class="fas fa-sign-out-alt"></i><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
                 </ul>
               </div>

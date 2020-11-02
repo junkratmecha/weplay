@@ -36,8 +36,8 @@ URL: https://weplay-junkrat.herokuapp.com<br>
 ## 機能
 * ユーザー機能(Device gem、追加/編集/削除、ゲストログイン、ログイン維持)
 * コミュニティ機能(追加/編集/削除、管理者ユーザー、参加申請→許可)
-* グループメッセージ機能(追加/削除、非同期処理)
-* 画像投稿機能(Carrierwave)
+* グループメッセージ機能(追加/削除)
+* 画像投稿・プレビュー機能(Carrierwave)
 * 検索機能(Ransack)
 * ページネーション機能(Kaminari)
 * タグ機能(acts-as-taggable-on)
@@ -53,3 +53,11 @@ Ruby、Ruby on Rails、Rspec、SQL<br>
 AWS(S3)、Heroku、MySQL2<br>
 ■その他ツール等<br>
 Docker、CircleCI、Git/GitHub Rubocop
+
+## 鋭意実装中
+* 非同期メッセージ
+* AWSデプロイ
+* Rspecテスト充実化
+* レスポンシブ対応
+* クラン内イベントモデル(for日程・時間調整)
+* 全ユーザー用雑談トピックモデル(forクラン探しのきっかけ、情報交換板)
