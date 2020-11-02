@@ -56,7 +56,7 @@
               <% if user_signed_in? %>
                 <div class="text-center">
                   <% if user_admin_flg(current_user, @clan) == 1 %>
-                    <%= link_to "クラン編集", edit_clan_path, class:"btn btn2" %>
+                    <%= link_to "クラン編集", edit_clan_path, class:"btn btn2", data: {"turbolinks" => false} %>
                   <% end %>
                   <% if @clan.user_belonging?(current_user) %>
                       <%= link_to '退会する', clan_belonging_path(@clan, @belonging), method: :delete, data:{ confirm: "クラン「#{@clan.name}」を退会します。よろしいですか？" } ,class:"btn btn_mini_red" %>
