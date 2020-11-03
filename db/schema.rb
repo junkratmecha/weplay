@@ -63,16 +63,6 @@ ActiveRecord::Schema.define(version: 2020_11_03_075005) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "content"
-    t.integer "clan_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["clan_id"], name: "index_messages_on_clan_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "clan_id"
