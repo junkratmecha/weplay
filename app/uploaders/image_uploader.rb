@@ -3,13 +3,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     storage :fog
   else
-    storage :file #=> ローカルストレージ
+    storage :file
   end
-  # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -35,6 +33,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_whitelist
     %w(jpg jpeg gif png)
+  end
+
+  def filename
+    original_filename if original_filename
   end
 
   # Override the filename of the uploaded files:
