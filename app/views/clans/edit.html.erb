@@ -10,7 +10,7 @@
       <%= form_with(model: @clan, local: true) do |f| %>
         <div class="post-image-prev text-center">
           <% if @clan.image? %>
-            <%= image_tag @clan.image, alt: "post-image", id: "img_prev", class: "clan_image" %>
+            <%= image_tag "#{@clan.image}", alt: "post-image", id: "img_prev", class: "clan_image" %>
           <% else %>
             <%= image_tag "default_clan.png", alt: "post-image", id: :img_prev, class: "clan_image" %>
           <% end %>
