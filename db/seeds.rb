@@ -30,19 +30,10 @@ User.create!(name:  "ゲンジ",
             email: "aaaa@gmail.com",
             self_introduction: 
             "オーバーウォッチ PS4で遊んでます。
-
             メインはゲンジです！(マーシーは使いたいだけ)
             他は全然使えません(死)
-            
             ランクマはゴールド帯の主をしています。
-            現在はプラチナですが……。
-            
-            VC環境は、PS4VC、Skype、discordです。
-            
-            基本活動時間は平日土日関係なく21時～25時です。
-            
-            仲良くしてください！
-            ",
+            現在はプラチナですが……。",
             password: "aaaaaa",
             password_confirmation: "aaaaaa")
 
@@ -56,8 +47,6 @@ User.create!(name:  "ハンゾー",
             self_introduction: 
             "発売日に買ったのに今更ハマりました｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡
             活動時間は夕方から深夜、あさがたにかか朝方にかけてです╰(*´︶`*)╯
-            
-            まだ全然上手くないですがエンジョイでも仲良く一緒に遊んでくれるフレンドを募集しています。
             ランクマはまだあまり潜ったことありません！
             ヒーローは時間のいちばん長いハンゾーにしていますがまだ迷走中です！",
             password: "bbbbbb",
@@ -73,8 +62,7 @@ User.create!(name:  "パスファインダー",
             self_introduction: 
             "PS4しか持ってないです
             ライバルシーズン6最大プラチナ
-            Twitterとかでも気軽に話しかけてください
-            
+          
             よく使うキャラ
             パス/ワトソン",
             password: "cccccc",
@@ -154,11 +142,9 @@ User.create!(name:  "Dancequeen",
             address: "高槻",
             email: "iiii@gmail.com",
             self_introduction: 
-            "腕前関係なく楽しくやり、
-            チームなんかも組めたら良いなと思っています。
+            "腕前関係なく楽しくやり、チームなんかも組めたら良いなと思っています。
             ボイチャはくだらない雑談を交えつつ飲酒でもしながらワイワイできたらいいです。スカイプもできます。
-            興味を持ってくださったら是非ともお気軽にツイッターなどで絡みにきてください！
-            たまにYouTubeに動画も上げたりもしてます。一緒にたくさん遊びましょー!",
+            興味を持ってくださったら是非ともお気軽にツイッターなどで絡みにきてください！",
             password: "iiiiii",
             password_confirmation: "iiiiii")
 
@@ -258,8 +244,7 @@ User.create!(name:  "チーター征伐",
             email: "pppp@gmail.com",
             self_introduction: 
             "楽しくワイワイできる人とやりたいです！いいねきたらフォローしにいきます！
-            一緒に楽しみましょう！
-            イン率高い人大募集！
+            一緒に楽しみましょう、イン率高い人大募集！
             最近ゲームやってなくてモチベあげたいんで遊びましょー！",
             password: "pppppp",
             password_confirmation: "pppppp")
