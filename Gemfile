@@ -26,6 +26,7 @@ gem 'kaminari'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'meta-tags'
 gem 'aws-sdk-s3',              '1.46.0', require: false
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
