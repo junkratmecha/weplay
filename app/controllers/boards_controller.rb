@@ -8,8 +8,7 @@ class BoardsController < ApplicationController
       redirect_to clan_path(@clan), notice: 'メッセージが投稿されました'
     else
       @boards = @clan.boards.includes(:user)
-      flash.now[:alert] = 'メッセージを入力してください。'
-      render :index
+      redirect_to clan_path(@clan), alert: 'メッセージが無効(空白or140字以上)です。'
     end
   end
 

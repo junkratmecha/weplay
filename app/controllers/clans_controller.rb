@@ -8,7 +8,7 @@ class ClansController < ApplicationController
       @clans = @q.result(distinct: true).tagged_with("#{params[:tag_name]}").
         page(params[:page]).per(12)
     else
-      @clans = @q.result(distinct: true).page(params[:page]).per(12)
+      @clans = @q.result(distinct: true).page(params[:page]).per(8)
     end
   end
 
