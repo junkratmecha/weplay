@@ -31,4 +31,39 @@ module ApplicationHelper
     flg = Belonging.find_by(user_id: user.id, clan_id: clan.id) if user
     flg.admin_flg if flg
   end
+
+  #gem meta-tag
+  def default_meta_tags
+    {
+      site: 'We Play',
+      keyword: 'PS, プレステ, ゲーム仲間, クラン',
+      reverse: true,
+      separator: '|',
+      description: 'プレイステーションのゲーム仲間・コミュニティ探しサービスです。',
+      canonical: request.original_url,
+      noindex: ! Rails.env.production?,
+      icon: [
+        { href: image_url('favicon.ico') }
+      ],
+      og: defalut_og,
+      twitter: {
+        card: 'summary_large_image',
+        site: '@weplay_ps',
+      }
+    }
+  end
+  
+  private
+  
+  def defalut_og
+    {
+      site_name: 'We Play',
+        title: 'We Play',
+        description: 'プレイステーションのゲーム仲間・コミュニティ探しサービスです。', 
+        type: 'website',
+        url: request.original_url,
+        image: image_url('weplay.png'),
+        locale: 'ja_JP',
+    }
+  end
 end

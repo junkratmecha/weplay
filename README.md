@@ -41,7 +41,7 @@ URL: https://weplay-junkrat.herokuapp.com<br>
 * 検索機能(Ransack)
 * ページネーション機能(Kaminari)
 * タグ機能(acts-as-taggable-on)
-* レスポンシブ対応
+* SEO/OGP(meta-tag)
 * Rspec(25 examples)
 
 ## 使用技術
@@ -55,6 +55,7 @@ AWS(S3)、Heroku、MySQL2<br>
 Docker、CircleCI、Git/GitHub Rubocop
 
 ## 鋭意実装中
+* レスポンシブ対応
 * 非同期メッセージ
 * AWSデプロイ
 * Rspecテスト充実化
