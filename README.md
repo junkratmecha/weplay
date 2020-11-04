@@ -42,7 +42,8 @@ URL: https://weplay-junkrat.herokuapp.com<br>
 * ページネーション機能(Kaminari)
 * タグ機能(acts-as-taggable-on)
 * SEO/OGP(meta-tag)
-* Rspec(25 examples)
+* レスポンシブ対応
+* Rspec(27 examples)
 
 ## 使用技術
 ■フロントエンド<br>
@@ -55,10 +56,7 @@ AWS(S3)、Heroku、MySQL2<br>
 Docker、CircleCI、Git/GitHub Rubocop
 
 ## 鋭意実装中
-* レスポンシブ対応
 * 非同期メッセージ
 * AWSデプロイ
 * Rspecテスト充実化
-* レスポンシブ対応
 * クラン内イベントモデル(for日程・時間調整)
-* 全ユーザー用雑談トピックモデル(forクラン探しのきっかけ、情報交換板)

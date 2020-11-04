@@ -3,16 +3,26 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag 'logo_white_1.png', style: "width: 100px;" %>
     <% end %>
-    <div class="collapse navbar-collapse" id="navmenu1">
+    <button class="navbar-toggler" type="button"
+        data-toggle="collapse"
+        data-target="#responsiveMenu"
+        aria-controls="responsiveMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="responsiveMenu">
       <% if user_signed_in? %>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><i class="fas fa-handshake"></i><%= link_to ' クランを探す', clans_path %></li>
           <li class="nav-item"><i class="fas fa-flag"></i><%= link_to ' クランを作る', new_clan_path %></li>
-          <% if current_user.image? %>
-            <img src=<%= current_user.image %> class = "icon_image_mini">
-          <% else %>
-            <%= image_tag 'default-user-image.png', class: "icon_image_mini" %>
-          <% end %>
+          <li class="nav-item">
+            <% if current_user.image? %>
+              <img src=<%= current_user.image %> class = "icon_image_mini">
+            <% else %>
+              <%= image_tag 'default-user-image.png', class: "icon_image_mini" %>
+            <% end %>
+          </li>
           <li class="nav-item">
               <div class="dropdown"> 
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %><span class="caret"></span></a>
