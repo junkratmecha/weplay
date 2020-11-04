@@ -20,11 +20,12 @@ RSpec.feature 'Clans', type: :feature do
       expect(page).to have_content 'ログインしました。'
     end
 
-    it  'failed create clan without game-tag' do 
+    it 'failed create clan without game-tag' do
       visit '/clans/new'
       fill_in 'clan[name]', with: 'テストクラン'
       click_on 'クラン作成'
       expect(page).to have_content 'ゲームを入力してください'
     end
   end
+
 end

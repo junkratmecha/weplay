@@ -8,6 +8,7 @@ describe User do
     end
   end
   # メール/名前/パスワードがなければ無効な状態であること
+
   context 'registration failed by nil colum' do
     it "failed when name = nil" do
       user = build(:user, name: nil)
@@ -28,6 +29,7 @@ describe User do
     end
   end
   # メールが重複・全角カナ文字・@が無い状態であれば無効であること
+
   context 'registration failed by email_validation_error' do
     it "failed when email alredy exists" do
       user1 = create(:user)
@@ -50,6 +52,7 @@ describe User do
     end
   end
   # パスワードの文字数制限、パスワード確認との一致
+
   context 'registration failed by password_validation_error' do
     it "failed when password under 6" do
       user = build(:user, password: "aaa11", password_confirmation: "aaa11")
@@ -67,14 +70,15 @@ describe User do
     end
   end
   # 自己紹介の文字数制限
+
   context 'registration with self_introduction' do
     it "sucess when self_introdiction under 400" do
-      user = build(:user, self_introduction: "アイウエオ" *80)
+      user = build(:user, self_introduction: "アイウエオ" * 80)
       expect(user).to be_valid
     end
 
     it "failed when self_introdiction over 400" do
-      user = build(:user, self_introduction: "アイウエオ" *81)
+      user = build(:user, self_introduction: "アイウエオ" * 81)
       expect(user).not_to be_valid
     end
   end

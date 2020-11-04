@@ -3,7 +3,9 @@
 @import "reset";
 @import "header";
 @import "footer";
+@import "top";
 @import "pages";
+@import "btn";
 @import "image";
 @import "user";
 @import "clan";
@@ -11,21 +13,21 @@
 
 // body
 .body{
-  margin-bottom: 130px;
+  // margin-bottom: 130px;
   color: #363636;
   font-size: 100%;
 }
 
-.wrapper{
-  min-height: 100vh;
-  position: relative;
-  padding-bottom: 100px;
-  box-sizing: border-box;
-}
+// .wrapper{
+//   min-height: 100vh;
+//   position: relative;
+//   padding-bottom: 100px;
+//   box-sizing: border-box;
+// }
 
-.error_message{
-  color: #72261c;
-}
+// .error_message{
+//   color: white;
+// }
 
 a{
   color:  black;
@@ -34,158 +36,47 @@ a{
 
 
 // for pages
-.titleHr{
-  margin-top: 10px;
-  border-top: 1px solid #e9eef1;
+// .titleHr{
+//   margin-top: 10px;
+//   border-top: 1px solid #e9eef1;
 
-}
+// }
 
-.content{
-  margin-top: 10px;
-}
+// .content{
+//   margin-top: 10px;
+// }
 
-.show-message{
-  float: right;
-  margin-bottom: 10px;
-}
+// .show-message{
+//   float: right;
+//   margin-bottom: 10px;
+// }
 
-.follower-face{
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
+// .follower-face{
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 50%;
+// }
 
-.top-summary{
-  margin-top: 50px;
-  margin-bottom: 120px;
-}
-
-.top_image{
-  width: 100%;
-  margin-top: 50px;
-}
+// .top-summary{
+  // margin-top: 50px;
+  // margin-bottom: 120px;
+// }
 
 
 
-.top_howto{
-  width: 100%;
-  margin: 20px 0 40px 0;
-}
-
-.top-registraion{
-  padding: 60px;
-  background-color: #f5f8fa;
-  border-radius: 15px;
-}
-
-.top-message{
-  margin-top: 50px;
-  
-}
-
-
-// トップページ
-.btn1{
-  color: #fff;
-  background-image: linear-gradient(260deg, #3a51d3, #010ca3);
-  border-radius: 50px;
-  width: 240px;
-  margin: 40px 50px 0px 0px;
-}
-
-.btn1:hover {
-  background-image: linear-gradient(260deg, #4e62d6, #3a51d3);
-  color: #fff;
-}
-// ちょっとしたボタン・プロフィール編集等
-.btn2{
-  color: #fff;
-  background-color: #010ca3;
-  width: 140px;
-  height: 30px;
-  font-size: small;
-  margin: 20px auto;
-}
-.btn2:hover {
-  background-color: #3a51d3;
-  color: #fff;
-}
-
-.btn_mini_red{
-  color: #fff;
-  background-color: brown;
-  width: 140px;
-  height: 30px;
-  font-size: small;
-  margin: 20px auto;
-}
-.btn_mini_red:hover {
-  background-color: rgb(185, 80, 80);
-  color: #fff;
-}
 
 
 
-// deviceクリック(yes)
-.btn3{
-  background-image: linear-gradient(260deg, #3a51d3, #010ca3);
-  margin: 30px 0px 0px 0;
-  color: #fff;
-}
 
-.btn3:hover {
-  background-image: linear-gradient(260deg, #4e62d6, #3a51d3);
-  color: #fff;
-}
+// .top-registraion{
+//   padding: 60px;
+//   background-color: #f5f8fa;
+//   border-radius: 15px;
+// }
 
-// ゲストログイン・device戻るボタン(no)
-.btn4{
-  background-color: gray;
-  margin: 30px 0px 0px 0;
-  color: #fff;
-}
 
-.btn4:hover {
-  background-color: #9e9e9e;
-  color: #fff;
-}
 
-.btn_red{
-  background-color: brown;
-  margin: 30px 0px 0px 0;
-  color: #fff;
-}
 
-.btn_red:hover {
-  background-color: rgb(185, 80, 80);
-  color: #fff;
-}
-
-.btn_req {
-  color: #fff;
-  height: 30px;
-  font-size: small;
-  background-color: #010ca3;
-  margin: 5px 0;
-}
-
-.btn_req:hover {
-  background-color: #3a51d3;
-  color: #fff;
-}
-
-.btn_req2 {
-  color: #fff;
-  height: 30px;
-  font-size: small;
-  background-color: brown;
-  margin: 5px 0;
-}
-
-.btn_req2:hover {
-  background-color: rgb(185, 80, 80);
-  color: #fff;
-}
 
 #box1{
   background-color: #fff;

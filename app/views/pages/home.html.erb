@@ -1,19 +1,20 @@
 <div id="box1">
   <div class="container">
-    <div class="row top-summary">
-      <div class="col-sm-6 col-md-6 col-lg-5">
+    <div class="row">
+      <div class="col-lg-6">
         <%= image_tag 'team_blue2.png', class: "top_image" %>
       </div>
-      <div class="col-sm-6 col-md-6 col-lg-7 top-message">
-        <p class="example1" style="margin-top: 80px;">プレステ仲間探しは “WE PLAY”</p>
-        <p class="example1" style="margin: 50px 0px;">一緒に遊べばゲームはもっと楽しくなる!!!</p>
-        <div class="btn-toolbar">
-          <div class="btn-group">
-          <p style="margin-left: 70px;"><%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg btn1"  %></p>
-          <p><%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn1"%></p>
+      <div class="col-lg-6">
+        <p class="example1" style="margin-top: 80px;">“WE PLAY”で<br> プレステ仲間探し</p>
+        <p class="example1" style="margin: 50px 0px;">一緒に遊べば、<br>ゲームはもっと楽しい!!</p>
+        <div class="text-center btn-group">
+          <div class="co-wrap">
+          <p class="text-center"><%= link_to "ユーザー登録", new_user_registration_path, class: "btn btn-lg btn_top"  %></p>
+          <p style="font-size: small;"><%= link_to "使ってみる!?(ゲストでログイン)", new_user_session_path %></p>
           </div>
+          <p class="text-center"><%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn_top"%></p>
         </div>
-        <p style="font-size: small; margin-left: 70px;"><%= link_to "使ってみる!?(ゲストでログイン)", new_user_session_path %></p>
+        
       </div>
     </div>
   </div>
@@ -32,6 +33,6 @@
         <%= image_tag 'chat.png', class: "top_howto" %>
       </div>
     </div>
-    <p class="text-center"><%= link_to "クランを探す", clans_path, class: "btn btn1 btn-lg" %></p>
+    <p class="text-center"><%= link_to "クランを探す", clans_path, class: "btn btn-lg btn_top" %></p>
   </div>
 </div>
