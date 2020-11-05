@@ -51,6 +51,51 @@ describe User do
       expect(user.errors[:email]).to include("は不正な値です")
     end
   end
+
+  # メールアドレスの重複したユーザーであれば無効であること
+  context 'email uniquenass check' do
+    it "failed by same email" do
+      user = create(:user, email: "test@test.mail")
+      user2 = build(:user, email: "test@test.mail" )
+      expect(user).to be_valid
+      expect(user2).not_to be_valid
+      expect(user2.errors[:email]).to include("はすでに存在します")
+    end
+
+    it "failed by email in same serial alphabet by small and big" do
+      user = create(:user, email: "test@test.mail")
+      user2 = build(:user, email: "TEST@test.mail" )
+      expect(user).to be_valid
+      expect(user2).not_to be_valid
+      expect(user2.errors[:email]).to include("はすでに存在します")
+    end
+  end
+
+  # 名前の文字数制限(10文字)・バリデーション
+  context 'validation by name' do
+    it "sucess when name under 10" do
+      user = build(:user, name: "アイウエオカキクケコ" )
+      expect(user).to be_valid
+    end
+
+    it "failed when name over 10" do
+      user = build(:user, name: "アイウエオカキクケコサ" )
+      expect(user).not_to be_valid
+    end
+  end
+
+  context 'validation by address' do
+    it "sucess when address under 10" do
+      user = build(:user, address: "関東の東京都" )
+      expect(user).to be_valid
+    end
+
+    it "failed when address over 10" do
+      user = build(:user, address: "関東の東京都の日野市の石田" )
+      expect(user).not_to be_valid
+    end
+  end
+
   # パスワードの文字数制限、パスワード確認との一致
 
   context 'registration failed by password_validation_error' do

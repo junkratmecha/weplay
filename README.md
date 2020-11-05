@@ -43,7 +43,7 @@ URL: https://weplay-junkrat.herokuapp.com<br>
 * タグ機能(acts-as-taggable-on)
 * SEO/OGP(meta-tag)
 * レスポンシブ対応
-* Rspec(27 examples)
+* Rspec(モデル・コントローラー・フィーチャー、53 examples)
 
 ## 使用技術
 ■フロントエンド<br>
@@ -58,5 +58,5 @@ Docker、CircleCI、Git/GitHub Rubocop
 ## 鋭意実装中
 * 非同期メッセージ
 * AWSデプロイ
-* Rspecテスト充実化
 * クラン内イベントモデル(for日程・時間調整)
+* Rspecテストの充実化
