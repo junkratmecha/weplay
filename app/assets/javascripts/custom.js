@@ -30,7 +30,7 @@ $(function () {
 // 非同期チャット <a href="/clans/${board.clan_id}/boards/${board.clan_id}?board_id=${board.id}" data-method="delete" rel="nofollow" data-confirm="本当に削除しますか?">削除</a>
 $(function(){
   function buildHTML(board){  
-    var html = `<div class="balloon_r" id="board-${board.id}">
+    var html = `<div class="balloon_r">
                   <div class="faceicon">
                     <img src="${board.user_image.url}">
                   </div>
