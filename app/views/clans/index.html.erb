@@ -19,7 +19,7 @@
         <% @clans.each do |clan| %>
           <li>
             <div class="profile-card">
-              <%= link_to clan do %>
+              <%= link_to(clan, data: {"turbolinks" => false} ) do %>
               <div class="profile-card__inner">
                 <div class="profile-thumb">
                   <% if clan.image? %>

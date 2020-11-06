@@ -46,7 +46,7 @@
       </div>
       <div class="row-wrap">
         <% @user.clans.each do |clan| %>
-          <%= link_to clan do %>
+          <%= link_to(clan, data: {"turbolinks" => false} ) do %>
             <div class="profile-card">
               <div class="profile-card__inner">
                 <div class="profile-thumb">

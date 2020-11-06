@@ -1,5 +1,8 @@
 {
   "name": "weplay",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "actioncable": "^5.2.4-4",
+    "jquery": "^3.5.1"
+  }
 }

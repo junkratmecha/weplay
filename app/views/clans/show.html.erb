@@ -179,7 +179,7 @@
                 <%# ボード一覧 %>
                 <% @boards.each do |board| %>
                   <% if board.user == current_user %>
-                    <div class="balloon_r">
+                    <div class="balloon_r" id="board-<%= board.id %>">
                       <div class="faceicon">
                         <% if board.user.image? %>
                           <img src=<%= board.user.image %>>
@@ -191,7 +191,7 @@
                         <p class="says"><%= safe_join(board.content.split("\n"),tag(:br)) %></p>
                         <div style = "text-align: right;">
                           <%= board.created_at.strftime("%m月%d日 %H:%M") %>
-                          <%= link_to '削除', clan_board_path(board_id: board.id, clan_id: @clan.id), method: :delete %>
+                          <%= link_to '削除', clan_board_path(board_id: board.id, clan_id: @clan.id), method: :delete, remote: true, data: { confirm: '削除してよろしいですか？' }  %>
                         </div>
                       </div>
                     </div>
@@ -208,19 +208,23 @@
                         <p style="margin: 0 10px 0 10px; font-size: small;"><%= board.user.name %></p>
                       </div>
                       <div class="co-wrap">
-                        <p class="says"><%= board.content %></p>
+                        <p class="says"><%= safe_join(board.content.split("\n"),tag(:br)) %></p>
                         <%= board.created_at.strftime("%m月%d日 %H:%M") %>
                       </div>
                     </div>
                   <% end %>
                 <% end %>
+                <div class=boards>
+                </div>
+
+                
                 <%# ボードフォーム %>
-                <%= form_for [@clan, @board] do |f| %>
+                <%= form_with(model: [@clan, @board], local: true, id: "new_board") do |form| %> 
                   <div class="form-group offset-sm-3 col-sm-6 offset-sm-3">
-                    <%= f.text_area :content, :rows => "3", placeholder: "投稿内容を入力", autofocus: true, class: "form-control" %>
+                    <%= form.text_area :content, :rows => "3", placeholder: "投稿内容を入力", autofocus: true, class: "form-control contentbox" %>
                   </div>
                   <div class="form_area__action" style="margin: 0px; padding: 0px; text-align: center;">
-                    <%= f.submit "投稿", class: "btn btn2" %>
+                    <%= form.submit "投稿", class: "btn btn2 form__submit" %>
                   </div>
                 <% end %>
               <% else %>

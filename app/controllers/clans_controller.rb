@@ -17,7 +17,7 @@ class ClansController < ApplicationController
     @requests = Request.where(clan_id: params[:clan_id])
     @belongings = Belonging.where(clan_id: @clan.id)
     @board = Board.new
-    @boards = @clan.boards.includes(:user)
+    @boards = @clan.boards
     if current_user
       @belonging = Belonging.find_by(clan_id: @clan.id, user_id: current_user.id)
       @request = Request.find_by(clan_id: @clan.id, user_id: current_user.id)
