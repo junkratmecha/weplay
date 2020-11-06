@@ -3,25 +3,22 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @board = @clan.boards.new(board_params)
-    if @board.save
-      redirect_to clan_path(@clan), notice: 'メッセージが投稿されました'
-    else
-      @boards = @clan.boards.includes(:user)
-      redirect_to clan_path(@clan), alert: 'メッセージが無効(空白or140字以上)です。'
+    @board = Board.create(board_params)
+    @board.save
+    respond_to do |format|
+      format.html { redirect_to clan_path(params[:clan_id])  }
+      format.json
     end
   end
 
   def destroy
     @board = Board.find(params[:board_id])
     @board.destroy
-    redirect_to clan_path, notice: "ボードへの投稿を削除しました。"
   end
 
   private
-
   def board_params
-    params.require(:board).permit(:content).merge(user_id: current_user.id)
+    params.require(:board).permit(:content).merge(user_id: current_user.id, clan_id: params[:clan_id])
   end
 
   def set_clan

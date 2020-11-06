@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :belongings, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :clans, through: :belongings
-  has_many :boards
+  has_many :boards, dependent: :destroy
   validates :name, presence: true, length: { maximum: 10 }
   validates :address, length: { maximum: 10 }
   validates :self_introduction, length: { maximum: 400 }
