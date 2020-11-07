@@ -9,21 +9,17 @@ describe UsersController do
       get :show, params: { id: user }
     end
 
-    it "ユーザー詳細ページに遷移すること" do
+    it "can show user-my-page" do
       expect(response).to render_template :show
     end
 
-    it "HTTPのレスポンスが200であること" do
+    it "HTTP response return 200" do
       expect(response).to have_http_status "200"
-    end
-
-    it "適切にインスタンス変数(@user)が取り出されること" do
-      expect(assigns(:user)).to eq user
     end
   end
 
   describe 'GET #edit' do
-    context "ユーザーがログインしている場合" do
+    context "user login case" do
       before do
         visit '/users/sign_in'
         fill_in 'user[email]', with: user.email
@@ -32,16 +28,26 @@ describe UsersController do
         visit '/users/edit'
       end
 
-      it "プロフィール編集ページに遷移すること" do
+      it "can edit user-profile" do
         expect(response).to render_template :edit
       end
 
-      it "HTTPのレスポンスが200であること" do
+      it "HTTP response return 200" do
         expect(response).to have_http_status "200"
       end
 
-      it "適切にインスタンス変数(@user)が取り出されること" do
+      it "@user assigned correctly" do
         expect(assigns(:user)).to eq @user
+      end
+    end
+
+    context "user not login case" do
+      before do
+        visit '/users/edit'
+      end
+
+      it "nil be assigned" do
+        expect(assigns(:user)).to eq nil
       end
     end
   end

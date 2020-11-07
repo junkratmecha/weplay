@@ -5,6 +5,10 @@ class Users::SessionsController < Devise::SessionsController
       update_user.password = SecureRandom.urlsafe_base64
     end
     sign_in user
-    redirect_to root_path
+    redirect_to user_path(1)
+  end
+
+  def after_sign_in_path_for(resource)
+    user_path(resource)
   end
 end
