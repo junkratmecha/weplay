@@ -7,13 +7,13 @@ if Rails.env.production?
     config.cache_dir = "#{Rails.root}/tmp/uploads"
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
-      :provider              => 'AWS',
-      :region                => ENV['S3_REGION'],
-      :aws_access_key_id     => ENV['S3_ACCESS_KEY'],
-      :aws_secret_access_key => ENV['S3_SECRET_KEY'],
-      :path_style            => true
+      provider: 'AWS',
+      region: Rails.application.credentials.db[:S3_REGION],
+      aws_access_key_id: Rails.application.credentials.db[:S3_ACCESS_KEY],
+      aws_secret_access_key: Rails.application.credentials.db[:S3_SECRET_KEY],
+      path_style: true
     }
-    config.fog_directory     =  ENV['S3_BUCKET_KEY']
+    config.fog_directory     =  Rails.application.credentials.db[:S3_BUCKET_KEY]
     config.storage :fog
     config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" }
   end
