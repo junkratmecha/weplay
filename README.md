@@ -9,6 +9,7 @@
 
 ## URL
 URL: https://weplay-junkrat.herokuapp.com<br>
+(AWSへも併設準備中:http://54.92.111.136/)<br>
 (ヘッダー右上のログインボタンでログイン画面へ遷移後、「ゲストログイン」で情報入力無しで使用できます)
 
 ## 制作背景
@@ -52,12 +53,13 @@ URL: https://weplay-junkrat.herokuapp.com<br>
 HTML/CSS、JavaScript, Bootstrap、Jquery<br>
 ■バックエンド<br>
 Ruby、Ruby on Rails、Rspec、SQL<br>
-■インフラ<br>
-AWS(S3)、Heroku、MySQL2<br>
+■インフラ(Heroku→AWSへ移設中)<br>
+AWS(S3/EC2)、Heroku、MySQL2、Nginx<br>
 ■その他ツール等<br>
 Docker、CircleCI、Git/GitHub Rubocop
 
 ## 鋭意実装中
-* AWSデプロイ
 * クラン内イベントモデル(for日程・時間調整)
+* 人気のゲームランキング
 * Rspecテストの充実化
+* エラー対応(見つけたらご連絡ください)
